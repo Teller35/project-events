@@ -1,0 +1,29 @@
+{
+  "name": "project-events",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "cd client && npm run build",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teller35/project-events.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teller35/project-events/issues"
+  },
+  "homepage": "https://github.com/Teller35/project-events#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
+}
