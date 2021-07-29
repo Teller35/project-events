@@ -1,6 +1,7 @@
 import "./App.css";
-import { ApolloProvider } from "@apollo/reach-hooks";
+import { ApolloProvider } from "@apollo/client";
 import ApolloClient from "apollo-boost";
+
 
 const client = new ApolloClient({
   uri: "/graphql",
