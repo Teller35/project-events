@@ -30,6 +30,13 @@ const userSchema = new Schema(
       required: true,
       minLength: 6,
     },
+    age: {
+      type: Number,
+      required: true,
+      trim: true
+    },
+    // meetingsPlanned: [meetingSchema],
+    // friends: [friendSchema],
   },
   {
     toJSON: {
