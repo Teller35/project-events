@@ -88,7 +88,7 @@ const typeDefs = gql`
       meetingType: String
     ): Meeting
 
-    deleteMeeting(meetingId: String): User
+    deleteMeeting(meetingId: String): Meeting
 
     login(email: String!, password: String!): Auth
   }

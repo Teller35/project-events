@@ -74,18 +74,19 @@ const resolvers = {
     },
     updateUser: async (parent, args, context) => {
       if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, {
-          new: true,
-        });
+        return await User.findByIdAndUpdate(
+          context.user._id, 
+          args, 
+          { new: true });
       }
       throw new AuthenticationError("Need to be logged in!");
     },
-    updateMeeting: async () => {},
+    updateMeeting: async (parent, args, context) => {},
     deleteMeeting: async (parent, { meetingId }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const updatedUser = await Meeting.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedMeets: { meetingId } } },
+          { $pull: { meetings: { meetingId } } },
           { new: true }
         );
         return updatedUser;
