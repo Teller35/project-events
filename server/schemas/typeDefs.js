@@ -83,7 +83,8 @@ const typeDefs = gql`
     ): User
 
     updateMeeting(
-      meetingTime: String
+      _id: ID!
+      meetingTime: Int
       place: String
       meetingType: String
     ): Meeting
