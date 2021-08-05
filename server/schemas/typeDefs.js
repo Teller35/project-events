@@ -8,7 +8,8 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     age: Int
-    meetingsPlanned: [Meeting]
+    friendsCount: Int
+    meetingsPlanned: [Meetings]
     friends: [User]
   }
 
@@ -17,15 +18,18 @@ const typeDefs = gql`
     name: String
   }
 
-  type Meeting {
+  type Meetings {
     _id: ID
     meetingTime: String
+    username: String
     place: String
     meetingType: String
+    createdAt: String
+    reactionsCount: Int
     reactions: [Reaction]
   }
 
-  type Reaction {
+  type Reactions {
     _id: ID
     reactionBody: String
     createdAt: String
@@ -44,20 +48,51 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
-    meetings(username: String!): [Meeting]
+    user(username: String!): User
+    meetings(username: String!): [Meetings]
+    singleMeeting(_id: ID!): Meetings
+    allMeetings: [Meetings]
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String! firstName: String!, lastName: String!, age: Int!): Auth
+    addUser(
+      username: String!
+      email: String!
+      password: String!
+      firstName: String!
+      lastName: String!
+      age: Int!
+    ): Auth
+
     addReaction(meetingId: ID!, reactionBody: String!): Meeting
-addMeeting(meetingTime: String!, place: String!, meetingType: String!): Meeting
-addFriend(friendId: ID!): User
-updateUser(username: String firstName: String lastName: String email: String password: String age: Int): User
-updateMeeting(meetingTime: String, place: String, meetingType: String): Meeting
-deleteMeeting(meetingId: String): User
-login(email: String!, password: String!): Auth
+
+    addMeetings(
+      meetingTime: String!
+      place: String!
+      meetingType: String!
+    ): Meetings
+
+    addFriend(friendId: ID!): User
+
+    updateUser(
+      username: String
+      firstName: String
+      lastName: String
+      email: String
+      password: String
+      age: Int
+    ): User
+
+    updateMeeting(
+      meetingTime: String
+      place: String
+      meetingType: String
+    ): Meeting
+
+    deleteMeeting(meetingId: String): User
+
+    login(email: String!, password: String!): Auth
   }
 `;
 
 module.exports = typeDefs;
-

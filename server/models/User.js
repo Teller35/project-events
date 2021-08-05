@@ -33,10 +33,20 @@ const userSchema = new Schema(
     age: {
       type: Number,
       required: true,
-      trim: true
+      trim: true,
     },
-    // meetingsPlanned: [meetingSchema],
-    // friends: [friendSchema],
+    meetings: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Meetings",
+      },
+    ],
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     toJSON: {
@@ -56,6 +66,10 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual("friendsCount").get(function () {
+  return this.friends.length;
+});
 
 const User = model("User", userSchema);
 
