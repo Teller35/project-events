@@ -82,11 +82,9 @@ const resolvers = {
     },
     updateMeeting: async (parent, { _id, args }, context) => {
       if (context.user) {
-        return await Meeting.findByIdAndUpdate(
-          _id,
-          args,
-          { new: true }
-        )
+        return await Meeting.findByIdAndUpdate(_id, args, {
+          new: true 
+        })
       }
       throw new AuthenticationError("Need to be logged in!");
     },
