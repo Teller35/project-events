@@ -1,4 +1,4 @@
-const User = require("../models");
+const { User, Meetings } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -12,10 +12,10 @@ const resolvers = {
           .populate("friends");
         return user;
       }
-      // throw new AuthenticationError("Not logged in!");
+      throw new AuthenticationError("Not logged in!");
     },
     users: async () => {
-      return User.find()
+      return await User.find()
         .select("-__v -password")
         .populate("friends")
         .populate("meetingsPlanned");
@@ -33,7 +33,7 @@ const resolvers = {
     },
     addMeeting: async (parent, args, context) => {
       if (context.user) {
-        const meet = Meeting.create({
+        const meet = await Meetings.create({
           ...args,
           username: context.user.username,
         });
@@ -48,7 +48,7 @@ const resolvers = {
     },
     addReaction: async (parent, { meetingId, reactionBody }, context) => {
       if (context.user) {
-        const updatedMeet = await Meeting.findOneAndUpdate(
+        const updatedMeet = await Meetings.findOneAndUpdate(
           { _id: meetingId },
           {
             $push: { reactions: reactionBody, username: context.user.username },

@@ -26,7 +26,7 @@ const typeDefs = gql`
     meetingType: String
     createdAt: String
     reactionsCount: Int
-    reactions: [Reaction]
+    reactions: [Reactions]
   }
 
   type Reactions {
@@ -48,7 +48,6 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
-    user(username: String!): User
     meetings(username: String!): [Meetings]
     singleMeeting(_id: ID!): Meetings
     allMeetings: [Meetings]
@@ -64,9 +63,9 @@ const typeDefs = gql`
       age: Int!
     ): Auth
 
-    addReaction(meetingId: ID!, reactionBody: String!): Meeting
+    addReaction(meetingId: ID!, reactionBody: String!): Meetings
 
-    addMeetings(
+    addMeeting(
       meetingTime: String!
       place: String!
       meetingType: String!
@@ -87,7 +86,7 @@ const typeDefs = gql`
       meetingTime: String
       place: String
       meetingType: String
-    ): Meeting
+    ): Meetings
 
     deleteMeeting(meetingId: String): User
 
