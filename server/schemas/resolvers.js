@@ -1,4 +1,4 @@
-const { User, Meetings } = require("../models");
+const { User, Meeting } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const user = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("meetingsPlanned")
+          .populate("meetings")
           .populate("friends");
         return user;
       }
@@ -18,7 +18,7 @@ const resolvers = {
       return await User.find()
         .select("-__v -password")
         .populate("friends")
-        .populate("meetingsPlanned");
+        .populate("meetings");
     },
     meetings: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -33,7 +33,7 @@ const resolvers = {
     },
     addMeeting: async (parent, args, context) => {
       if (context.user) {
-        const meet = await Meetings.create({
+        const meeting = await Meeting.create({
           ...args,
           username: context.user.username,
         });
@@ -42,20 +42,22 @@ const resolvers = {
           { $push: { meetings: meeting._id } },
           { new: true }
         );
-        return meet;
+        return meeting;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     addReaction: async (parent, { meetingId, reactionBody }, context) => {
       if (context.user) {
-        const updatedMeet = await Meetings.findOneAndUpdate(
+        const updatedMeeting = await Meeting.findOneAndUpdate(
           { _id: meetingId },
           {
-            $push: { reactions: reactionBody, username: context.user.username },
+            $push: {
+              reactions: { reactionBody, username: context.user.username },
+            },
           },
           { new: true, runValidators: true }
         );
-        return updatedMeet;
+        return updatedMeeting;
       }
       throw new AuthenticationError("You need to be logged in!");
     },

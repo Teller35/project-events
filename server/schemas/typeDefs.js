@@ -9,7 +9,7 @@ const typeDefs = gql`
     lastName: String
     age: Int
     friendsCount: Int
-    meetingsPlanned: [Meetings]
+    meetings: [Meeting]
     friends: [User]
   }
 
@@ -18,7 +18,7 @@ const typeDefs = gql`
     name: String
   }
 
-  type Meetings {
+  type Meeting {
     _id: ID
     meetingTime: String
     username: String
@@ -48,9 +48,9 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
-    meetings(username: String!): [Meetings]
-    singleMeeting(_id: ID!): Meetings
-    allMeetings: [Meetings]
+    meetings(username: String!): [Meeting]
+    singleMeeting(_id: ID!): Meeting
+    allMeetings: [Meeting]
   }
 
   type Mutation {
@@ -63,13 +63,13 @@ const typeDefs = gql`
       age: Int!
     ): Auth
 
-    addReaction(meetingId: ID!, reactionBody: String!): Meetings
+    addReaction(meetingId: ID!, reactionBody: String!): Meeting
 
     addMeeting(
-      meetingTime: String!
+      meetingTime: Int!
       place: String!
       meetingType: String!
-    ): Meetings
+    ): Meeting
 
     addFriend(friendId: ID!): User
 
@@ -86,7 +86,7 @@ const typeDefs = gql`
       meetingTime: String
       place: String
       meetingType: String
-    ): Meetings
+    ): Meeting
 
     deleteMeeting(meetingId: String): User
 

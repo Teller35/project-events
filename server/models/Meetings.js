@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
 const dateFormat = require("../utils/dateFormat");
 
-const meetingsSchema = new Schema(
+const meetingSchema = new Schema(
   {
     meetingTime: {
       type: Date,
@@ -37,10 +37,10 @@ const meetingsSchema = new Schema(
   }
 );
 
-meetingsSchema.virtual("reactionsCount").get(function () {
+meetingSchema.virtual("reactionsCount").get(function () {
   return this.reactions.length;
 });
 
-const Meetings = model("Meetings", meetingsSchema);
+const Meeting = model("Meeting", meetingSchema);
 
-module.exports = Meetings;
+module.exports = Meeting;
