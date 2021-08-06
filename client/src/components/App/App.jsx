@@ -1,15 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { StoreProvider } from "../../utils/GlobalState";
 import "./App.css";
 
 import Nav from "../Nav";
 import Home from "../../pages/Home";
 
 const httpLink = createHttpLink({
-  uri: "/graphql"
-})
+  uri: "/graphql",
+});
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
@@ -17,9 +23,9 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : "",
-    }
-  }
-})
+    },
+  };
+});
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
@@ -31,10 +37,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-          </Switch>
+          <StoreProvider>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={Home}></Route>
+            </Switch>
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
