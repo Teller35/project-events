@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import gql from "graphql-tag";
 
 export const GET_ME = gql`
   {
@@ -56,9 +56,11 @@ export const GET_ALL = gql`
         }
       }
     }
-    `;
+  }
+`;
 
 export const MEETINGS = gql`
+  {
     meetings {
       _id
       username
@@ -68,4 +70,5 @@ export const MEETINGS = gql`
       createdAt
       reactionsCount
     }
-  `;
+  }
+`;
