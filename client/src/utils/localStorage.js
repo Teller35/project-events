@@ -1,30 +1,30 @@
-export const getSavedMeetingId = () => {
-  const savedMeetingId = localStorage.getItem("saved_meetings")
+export const getSavedMeeting = () => {
+  const savedMeeting = localStorage.getItem("saved_meetings")
     ? JSON.parse(localStorage.getItem("saved_meetings"))
     : [];
-  return savedMeetingId;
+  return savedMeeting;
 };
 
-export const saveMeetingId = (meetingIdArr) => {
-  if (bookArr.length) {
-    localStorage.setItem("saved_meetings", JSON.stringify(meetingIdArr));
+export const saveMeeting = (meetingArr) => {
+  if (meetingArr.length) {
+    localStorage.setItem("saved_meetings", JSON.stringify(meetingArr));
   } else {
     localStorage.removeItem("saved_meetings");
   }
 };
 
-export const removeMeetingId = (meetingId) => {
-  const savedMeetingId = localStorage.getItem("saved_meetings")
+export const removeMeeting = (meeting) => {
+  const savedMeeting = localStorage.getItem("saved_meetings")
     ? JSON.parse(localStorage.getItem("saved_meetings"))
     : null;
 
-  if (!savedMeetingId) {
+  if (!savedMeeting) {
     return false;
   }
 
-  const updatedSavedMeetingId = savedMeetingId?.filter(
-    (savedMeetingId) => savedMeetingId !== meetingId
+  const updatedSavedMeeting = savedMeeting?.filter(
+    (savedMeeting) => savedMeeting !== meeting
   );
-  localStorage.setItem("saved_meetings", JSON.stringify(updatedSavedMeetingId));
+  localStorage.setItem("saved_meetings", JSON.stringify(updatedSavedMeeting));
   return true;
 };

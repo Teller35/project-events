@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useMutation } from "@apollo/client";
+import AddEventForm from "../AddEvent";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
 
+
+
   function loginNav() {
-    if (!Auth.loggedIn()) {
+    if (Auth.loggedIn()) {
       return (
         <ul>
           <li>
@@ -59,14 +63,8 @@ const Nav = () => {
           <Modal.Title>What kind of EVENT would you like to plan?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" placeholder="Event Type" />
-          <input type="text" placeholder="Event Place" />
-          <input type="text" placeholder="Event Time" />
+          <AddEventForm handleModalClose={() => setShow(false)} />
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => setShow(false)}>Close</Button>
-          <Button variant="primary">Schedule</Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
