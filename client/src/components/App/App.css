@@ -46,4 +46,12 @@
     transform: scale(1.08);
 }
 
+/* login/signup form Styling */
+.loginContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5vw;
+}
+
 
