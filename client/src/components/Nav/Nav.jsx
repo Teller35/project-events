@@ -34,10 +34,10 @@ const Nav = () => {
       return (
         <ul>
           <li>
-            <Link to="/signup">SignUp</Link>
+            <Link to="/landingpage">SignUp</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/landingpage">Login</Link>
           </li>
         </ul>
       );
