@@ -12,7 +12,8 @@ const AddEventForm = () => {
         meetingTime: "",
         place: ""
     })
-    
+    const [validated] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
   
   const [addMeeting, { error }] = useMutation(ADD_MEETING, {
       update(cache, { data: { addMeeting } }) {
@@ -43,7 +44,7 @@ const AddEventForm = () => {
       console.log(formState);
       try {
         await addMeeting({
-          variables: { ...fromState },
+          variables: { ...formState },
         })
       } catch (error) {
       console.log(error);
@@ -64,7 +65,7 @@ const AddEventForm = () => {
             placeholder="What kind of event?"
             name="meetingType"
             onChange={handleInputChange}
-            defaultValue={meetingType}
+            value={formState.meetingType}
             required
           />
         </Form.Group>
@@ -75,7 +76,7 @@ const AddEventForm = () => {
             placeholder="What is the location?"
             name="place"
             onChange={handleInputChange}
-            defaultValue={place}
+            value={formState.place}
             required
           />
         </Form.Group>
@@ -86,7 +87,7 @@ const AddEventForm = () => {
             placeholder="What is the event time"
             name="meetingTime"
             onChange={handleInputChange}
-            defaultValue={meetingTime}
+            value={formState.meetingTime}
             required
           />
         </Form.Group>
