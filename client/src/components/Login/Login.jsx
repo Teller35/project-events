@@ -10,11 +10,11 @@ function Login(props) {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const mutationResponse = await login({
-                variables: { email: formState.email, password: formState.password },
+            const { data } = await login({
+                variables: { ...formState },
             });
             // const token = mutationResponse.data.login.token;
-            Auth.login(mutationResponse.token);
+            Auth.login(data.login.token);
         } catch (e) {
             console.log(e);
         }
@@ -34,11 +34,11 @@ function Login(props) {
             <form onSubmit={handleFormSubmit}>
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input placeholder="Enter Your Email" name="email" type="email" id="email" onChange={handleChange} />
+                    <input placeholder="Enter Your Email" name="email" type="email"  onChange={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="pwd">Password:</label>
-                    <input placeholder="Enter Your Password" name="password" type="password" id="pwd" onChange={handleChange} />
+                    <input placeholder="Enter Your Password" name="password" type="password"  onChange={handleChange} />
                 </div>
                 {error ? (
                     <div>

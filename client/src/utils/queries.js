@@ -59,6 +59,26 @@ export const GET_ALL = gql`
   }
 `;
 
+export const ALL_MEETINGS = gql`
+  {
+    users {
+      meetings {
+        _id
+        createdAt
+        meetingTime
+        meetingType
+        place
+        reactionsCount
+        reactions {
+          reactionBody
+          username
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
 export const MEETINGS = gql`
   {
     meetings {

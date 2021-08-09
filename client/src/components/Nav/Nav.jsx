@@ -16,7 +16,7 @@ const Navbar = () => {
             <Nav.Link href="/home">Events</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link onClick={() => setShow(true)}>Add Event</Nav.Link>
+            {/* <Nav.Link onClick={() => setShow(true)}>Add Event</Nav.Link> */}
           </Nav.Item>
           <Nav.Item>
             <Nav.Link to="">Profile</Nav.Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
         <h1 className="text-center">E-V-E-N-T-S</h1>
         <Nav className="justify-content-end">{loginNav()}</Nav>
       </header>
-      <Modal
+      {/* <Modal
         show={show}
         onHide={() => setShow(false)}
         backdrop="static"
@@ -60,7 +60,7 @@ const Navbar = () => {
         <Modal.Body>
           <AddEventForm handleModalClose={() => setShow(false)} />
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
