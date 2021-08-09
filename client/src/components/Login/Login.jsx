@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/react-hooks';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
@@ -8,13 +8,13 @@ function Login(props) {
     const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
-        event.prevent();
+        event.preventDefault();
         try {
             const mutationResponse = await login({
                 variables: { email: formState.email, password: formState.password },
             });
-            const token = mutationResponse.data.login.token;
-            Auth.login(token);
+            // const token = mutationResponse.data.login.token;
+            Auth.login(mutationResponse.token);
         } catch (e) {
             console.log(e);
         }

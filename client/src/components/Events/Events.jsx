@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 // import { idbPromise } from "../../utils/helpers";
 import { MEETINGS } from "../../utils/queries";
 import { ADD_MEETING } from "../../utils/mutations";

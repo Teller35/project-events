@@ -8,51 +8,45 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [show, setShow] = useState(false);
 
-
-
   function loginNav() {
-    
-    if (!Auth.loggedIn()) {
+    if (Auth.loggedIn()) {
       return (
         <>
-        <Nav.Item>
-      <Nav.Link href="/home">Events</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-    <Nav.Link onClick={() => setShow(true)}>Add Event</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-    <Nav.Link to="">Profile</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-    <Nav.Link to="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
-    </Nav.Item>
-    </>
+          <Nav.Item>
+            <Nav.Link href="/home">Events</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={() => setShow(true)}>Add Event</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link to="">Profile</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link to="/" onClick={() => Auth.logout()}>
+              Logout
+            </Nav.Link>
+          </Nav.Item>
+        </>
       );
     } else {
       return (
         <>
-        <Nav.Item>
-      <Nav.Link href="/">LogIn</Nav.Link>
-    </Nav.Item>
-    <Nav.Item>
-      <Nav.Link href="/">SignUp</Nav.Link>
-    </Nav.Item>
-    </>
+          <Nav.Item>
+            <Nav.Link href="/">LogIn</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">SignUp</Nav.Link>
+          </Nav.Item>
+        </>
       );
     }
   }
 
-
   return (
     <>
       <header>
-        <h1 className="text-center">
-          E-V-E-N-T-S
-        </h1>
-        <Nav className="justify-content-end">
-            {loginNav()}
-            </Nav>
+        <h1 className="text-center">E-V-E-N-T-S</h1>
+        <Nav className="justify-content-end">{loginNav()}</Nav>
       </header>
       <Modal
         show={show}
@@ -60,8 +54,8 @@ const Navbar = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header>
-          <Modal.Title>What kind of EVENT would you like to plan?</Modal.Title>
+        <Modal.Header closeButton>
+          <Modal.Title>Plan next Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddEventForm handleModalClose={() => setShow(false)} />

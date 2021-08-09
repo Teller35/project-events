@@ -1,106 +1,112 @@
 import React, { useEffect, useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-import { useMutation } from "@apollo/client";
+import { Form, Button, Alert, Modal } from "react-bootstrap";
+import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
-import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
+import { MEETINGS, GET_ME } from "../../utils/queries";
+// import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
 const AddEventForm = () => {
-
-    const [meetingFormData, setMeetingFormData] = useState({
+    const [formState, setFormState] = useState({
         meetingType: "",
-        place: "",
-        eventTime: "",
+        meetingTime: "",
+        place: ""
     })
-    const [savedEvents, setSavedEvent] = useState(getSavedMeeting());
-    const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-    const [addMeeting] = useMutation(ADD_MEETING);
+    const { meetingType, meetingTime, place } = formState;
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [addMeeting, { error }] = useMutation(ADD_MEETING, {
+      update(cache, { data: { addMeeting } }) {
+          try {
+              const { meetings } = cache.readQuery({ query: MEETINGS });
+              cache.writeQuery({
+                  query: MEETINGS,
+                  data: { meetings: [addMeeting, ...meetings] },
+              })
+          } catch (error) {
+              console.log(error)
+          }
+          const { me } = cache.readQuery({ query: GET_ME });
+          cache.writeQuery({
+              query: GET_ME,
+              data: { me: { ...me, meetings: [...me.meetings, addMeeting] } }
+          })
+      }
+  })
 
-    useEffect(() => {
-        return () => saveMeeting(savedEvents);
-    })
+  const handleInputChange = (event) => {
+    setFormState({ ...formState, [event.target.name]: event.target.value})
+  }
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setMeetingFormData({ ...meetingFormData, [name]: value });
-    }
+  const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+      try {
+          await addMeeting({
+              variables: { meetingType, place, meetingTime }
+          })
+      } catch (error) {
+          console.log(error)
+      }
+  }
 
-    const handleFormSubmit = async (event) => {
-        const { data } = meetingFormData;
+  return (
+    <>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert dismissible onclose={() => setShowAlert(false)} show={showAlert}>
+          Something went wrong!
+        </Alert>
 
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-        if(!token) {
-            return false;
-        }
-
-        try {
-            await addMeeting({
-                variables: { ...data },
-            })
-            setSavedEvent([...savedEvents, data])
-        } catch (error) {
-            console.log(error)
-        }
-    }
-        
-    return (
-        <>
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            <Alert
-            dismissible
-            onclose={() => setShowAlert(false)}
-            show={showAlert}
-            >
-                Something went wrong!
-            </Alert>
-
-            <Form.Group>
-                <Form.Label htmlFor="meetingType">Event Type: </Form.Label>
-                <Form.Control
-                type="text"
-                placeholder="Event Type"
-                name="meetingType"
-                onChange={handleInputChange}
-                value={meetingFormData.meetingType}
-                required
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label htmlFor="place">Location: </Form.Label>
-                <Form.Control
-                type="text"
-                placeholder="Location"
-                name="place"
-                onChange={handleInputChange}
-                value={meetingFormData.place}
-                required
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label htmlFor="meetingTime">Time: </Form.Label>
-                <Form.Control
-                type="text"
-                placeholder="Event Time"
-                name="meetingTime"
-                onChange={handleInputChange}
-                value={meetingFormData.meetingTime}
-                required
-                />
-                <Form.Control.Feedback type="invalid">
-                    All fields are required!
-                </Form.Control.Feedback>
-            </Form.Group>
-            <Button
-            disabled={!(meetingFormData.meetingType && meetingFormData.place && meetingFormData.meetingTime)}
+        <Form.Group>
+          <Form.Label htmlFor="meetingType">Event Type: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What kind of event?"
+            name="meetingType"
+            onChange={handleInputChange}
+            defaultValue={meetingType}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="place">Location: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What is the location?"
+            name="place"
+            onChange={handleInputChange}
+            defaultValue={place}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="meetingTime">Time: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What is the event time"
+            name="meetingTime"
+            onChange={handleInputChange}
+            defaultValue={meetingTime}
+            required
+          />
+        </Form.Group>
+        <Modal.Footer>
+          <Button
+            // disabled={
+            //   !(
+            //     meetingType &&
+            //     place &&
+            //     meetingTime
+            //   )
+            // }
             type="submit"
-            >
-                Schedule
-            </Button>
-        </Form>
-        </>
-    )
-}
+          >
+            Schedule
+          </Button>
+        </Modal.Footer>
+      </Form>
+    </>
+  );
+};
 
 export default AddEventForm;
