@@ -40,7 +40,7 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/home" component={Home}></Route>
-            <Route exact path="/landingpage" component={LandingPage}></Route>
+            <Route exact path="/" component={LandingPage}></Route>
           </Switch>
         </div>
       </Router>
