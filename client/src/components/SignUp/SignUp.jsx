@@ -5,12 +5,12 @@ import { ADD_USER } from "../../utils/mutations";
 
 function SignUp(props) {
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
+    username: "",
     firstName: "",
     lastName: "",
+    email: "",
+    password: "",
     age: "",
-    username: ""
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 

@@ -60,7 +60,7 @@ export const GET_ALL = gql`
 `;
 
 export const ALL_MEETINGS = gql`
-  {
+  query ALL_MEETINGS{
     users {
       meetings {
         _id
