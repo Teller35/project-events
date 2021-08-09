@@ -66,7 +66,7 @@ const typeDefs = gql`
     addReaction(meetingId: ID!, reactionBody: String!): Meeting
 
     addMeeting(
-      meetingTime: Int!
+      meetingTime: String!
       place: String!
       meetingType: String!
     ): Meeting

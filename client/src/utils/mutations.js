@@ -31,8 +31,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_MEETING = gql`
-  mutation ADD_MEETING(
-    $meetingTime: Int!
+  mutation addMeeting(
+    $meetingTime: String!
     $place: String!
     $meetingType: String!
   ) {

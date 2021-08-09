@@ -12,9 +12,8 @@ const AddEventForm = () => {
         meetingTime: "",
         place: ""
     })
-    const { meetingType, meetingTime, place } = formState;
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+    
+  
   const [addMeeting, { error }] = useMutation(ADD_MEETING, {
       update(cache, { data: { addMeeting } }) {
           try {
@@ -35,18 +34,19 @@ const AddEventForm = () => {
   })
 
   const handleInputChange = (event) => {
-    setFormState({ ...formState, [event.target.name]: event.target.value})
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value })
   }
 
   const handleFormSubmit = async (event) => {
       event.preventDefault();
       console.log(formState);
       try {
-          await addMeeting({
-              variables: { meetingType, place, meetingTime }
-          })
+        await addMeeting({
+          variables: { ...fromState },
+        })
       } catch (error) {
-          console.log(error)
+      console.log(error);
       }
   }
 
