@@ -50,7 +50,7 @@ const typeDefs = gql`
     users: [User]
     meetings(username: String!): [Meeting]
     singleMeeting(_id: ID!): Meeting
-    allMeetings: [Meeting]
+    allMeetings: [User]
   }
 
   type Mutation {
@@ -60,13 +60,13 @@ const typeDefs = gql`
       password: String!
       firstName: String!
       lastName: String!
-      age: Int!
+      age: String!
     ): Auth
 
     addReaction(meetingId: ID!, reactionBody: String!): Meeting
 
     addMeeting(
-      meetingTime: Int!
+      meetingTime: String!
       place: String!
       meetingType: String!
     ): Meeting

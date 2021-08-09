@@ -1,58 +1,52 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Nav } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import AddEventForm from "../AddEvent";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Navbar = () => {
   const [show, setShow] = useState(false);
-
-
 
   function loginNav() {
     if (Auth.loggedIn()) {
       return (
-        <ul>
-          <li>
-            <Link to="/home">Events</Link>
-          </li>
-          <li>
-            <Link onClick={() => setShow(true)}>Add Event</Link>
-          </li>
-          <li>
-            <Link to="">Profile</Link>
-          </li>
-          <li>
-            <a href="/home" onClick={() => Auth.logout()}>
+        <>
+          <Nav.Item>
+            <Nav.Link href="/home">Events</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link onClick={() => setShow(true)}>Add Event</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link to="">Profile</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link to="/" onClick={() => Auth.logout()}>
               Logout
-            </a>
-          </li>
-        </ul>
+            </Nav.Link>
+          </Nav.Item>
+        </>
       );
     } else {
       return (
-        <ul>
-          <li>
-            <Link to="/landingpage">SignUp</Link>
-          </li>
-          <li>
-            <Link to="/landingpage">Login</Link>
-          </li>
-        </ul>
+        <>
+          <Nav.Item>
+            <Nav.Link href="/">LogIn</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">SignUp</Nav.Link>
+          </Nav.Item>
+        </>
       );
     }
   }
 
-
   return (
     <>
       <header>
-        <h1>
-          <Link to="/">E.V.E.N.T.S.</Link>
-        </h1>
-
-        <nav>{loginNav()}</nav>
+        <h1 className="text-center">E-V-E-N-T-S</h1>
+        <Nav className="justify-content-end">{loginNav()}</Nav>
       </header>
       <Modal
         show={show}
@@ -60,8 +54,8 @@ const Nav = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header>
-          <Modal.Title>What kind of EVENT would you like to plan?</Modal.Title>
+        <Modal.Header closeButton>
+          <Modal.Title>Plan next Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddEventForm handleModalClose={() => setShow(false)} />
@@ -71,4 +65,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navbar;

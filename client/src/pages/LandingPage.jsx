@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 import ImageSlider from "../components/ImageSlider/ImageSlider";
-import { SliderData } from "../components/SliderData";
+import { SliderData } from "../components/ImageSlider/SliderData";
 
 const LandingPage = () => {
 

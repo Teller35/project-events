@@ -1,13 +1,13 @@
 import gql from "graphql-tag";
 
 export const ADD_USER = gql`
-  mutation ADD_USER(
+  mutation AddUser(
     $username: String!
     $email: String!
     $password: String!
     $firstName: String!
     $lastName: String!
-    $age: Int!
+    $age: String!
   ) {
     addUser(
       username: $username
@@ -20,14 +20,19 @@ export const ADD_USER = gql`
       token
       user {
         _id
+        username
+        email
+        firstName
+        lastName
+        age
       }
     }
   }
 `;
 
 export const ADD_MEETING = gql`
-  mutation ADD_MEETING(
-    $meetingTime: Int!
+  mutation addMeeting(
+    $meetingTime: String!
     $place: String!
     $meetingType: String!
   ) {

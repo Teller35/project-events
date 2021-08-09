@@ -22,8 +22,14 @@ const resolvers = {
     },
     meetings: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Meeting.find(params).sort({ meetingTime: -1 });
+      return User.find(params)
+      .populate("meetings")
+      .populate("reactions")
     },
+    allMeetings: async () => {
+      return await User.find()
+      .populate("meetings")
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
