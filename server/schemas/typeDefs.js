@@ -60,7 +60,7 @@ const typeDefs = gql`
       password: String!
       firstName: String!
       lastName: String!
-      age: Int!
+      age: String!
     ): Auth
 
     addReaction(meetingId: ID!, reactionBody: String!): Meeting
