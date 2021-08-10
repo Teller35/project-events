@@ -6,7 +6,7 @@ import { ADD_MEETING } from "../../utils/mutations";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
-const AddEventForm = () => {
+const AddEventForm = ({ handleModalClose }) => {
     const [formState, setFormState] = useState({
         meetingType: "",
         meetingTime: "",
@@ -17,7 +17,7 @@ const AddEventForm = () => {
     const [showAlert, setShowAlert] = useState(false);
   
   const [addMeeting] = useMutation(ADD_MEETING);
-  const [show, setShow] = useState(false);
+  //  const handleModalClose = useState(false)
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
@@ -29,8 +29,6 @@ const AddEventForm = () => {
   }
 
   const handleFormSubmit = async (event) => {
-      event.preventDefault();
-      console.log(formState);
       try {
         await addMeeting({
           variables: { ...formState },
@@ -90,7 +88,7 @@ const AddEventForm = () => {
               )
             }
             type="submit"
-            handleModalClose={() => setShow(false)}
+            onClick={handleModalClose}
           >
             Schedule
           </Button>
