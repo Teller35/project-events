@@ -8,6 +8,7 @@ import "./App.css";
 import Nav from "../Nav";
 import Home from "../../pages/Home";
 import LandingPage from "../../pages/LandingPage";
+//import Profile from "../../pages/Profile"
 
 const client = new ApolloClient({
   request: (operation) => {

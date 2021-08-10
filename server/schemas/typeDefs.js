@@ -79,7 +79,7 @@ const typeDefs = gql`
       lastName: String
       email: String
       password: String
-      age: Int
+      age: String
     ): User
 
     updateMeeting(
