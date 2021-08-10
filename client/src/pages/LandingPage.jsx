@@ -10,15 +10,21 @@ const LandingPage = () => {
     const [showSignUp, setShowSignUp] = useState(false);
 
     return (
-        <div>
-            <h1>What will be your next ADVENTURE?</h1>
-            <div>
-                <button onClick={() => setShowLogin(true)}>Login</button>
-                <button onClick={() => setShowSignUp(true)}>SignUp</button>
+        <div className="landingPage">
+            <div className="landingPageInfo">
+                <h1>What will be your next ADVENTURE?</h1>
+                <p>During the past year and a half you must have thought to your self on at least once, "When will I be able to start my next adventure?"
+                    </p>
+                    <p>
+                     E-V-E-N-T-S is ready to help you find yours and even make your next adventure if you feel extra adventurous! 😉</p>
+                <div className="loginArea">
+                    <button id="loginBtn" onClick={() => setShowLogin(true)}>Login</button>
+                    <button id="SignUpButton" onClick={() => setShowSignUp(true)}>SignUp</button>
+                </div>
             </div>
            
             <ImageSlider slides={SliderData}/>
-            <div className="loginContainer">
+            <div>
                 <div>
                     <Modal 
                         show={showLogin}

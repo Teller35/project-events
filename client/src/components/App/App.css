@@ -47,11 +47,38 @@
 }
 
 /* login/signup form Styling */
-.loginContainer {
+.landingPage {
+    margin: 4vw;
+}
+
+.landingPageInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: cornsilk;
+    padding: 1vw;
+    border-radius: 2vw;
+}
+
+.landingPageInfo p {
+    font-size: 1.5vw;
+}
+
+.loginArea {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 4vw;
+    width: 50%;
+}
+
+.loginArea button {
+    background-color: blue;
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+    border-radius: 1vw;
+    padding: 7px;
 }
 
 
