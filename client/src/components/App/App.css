@@ -54,4 +54,10 @@
     padding: 4vw;
 }
 
-
+body {
+    background-image: url(../../assets/large/Grand-Junction.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}

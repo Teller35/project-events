@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Card, Row, Button, Col, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Events.css"
 
 const Events = ({ meetings, title }) => {
   if (!meetings.length) {
@@ -14,8 +15,8 @@ const Events = ({ meetings, title }) => {
     {meetings && 
     meetings.map((meeting) => (
       <Col className="p-2">
-      <Card style={{ width: "20rem" }} className="border border-5 rounded m-auto" key={meeting._id}>
-        <Card.Body>
+      <Card style={{ width: "20rem" }} className="Border m-auto" key={meeting._id}>
+        <Card.Body className="Border">
           <Card.Title className="text-center">{meeting.meetingType}</Card.Title>
           <Card.Subtitle className="text-center">{meeting.reactionCount}</Card.Subtitle>
           <Card.Text className="text-center">
