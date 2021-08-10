@@ -17,6 +17,7 @@ const AddEventForm = () => {
     const [showAlert, setShowAlert] = useState(false);
   
   const [addMeeting] = useMutation(ADD_MEETING);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
@@ -81,14 +82,15 @@ const AddEventForm = () => {
         </Form.Group>
         <Modal.Footer>
           <Button
-            // disabled={
-            //   !(
-            //     meetingType &&
-            //     place &&
-            //     meetingTime
-            //   )
-            // }
+            disabled={
+              !(
+                formState.meetingType &&
+                formState.place &&
+                formState.meetingTime
+              )
+            }
             type="submit"
+            handleModalClose={() => setShow(false)}
           >
             Schedule
           </Button>
