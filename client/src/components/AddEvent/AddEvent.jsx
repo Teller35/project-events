@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
-import { MEETINGS, GET_ME } from "../../utils/queries";
-// import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
+// import { MEETINGS, GET_ME } from "../../utils/queries";
+import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
 const AddEventForm = () => {
@@ -12,26 +12,14 @@ const AddEventForm = () => {
         meetingTime: "",
         place: ""
     })
+    const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
   
-  const [addMeeting, { error }] = useMutation(ADD_MEETING, {
-      update(cache, { data: { addMeeting } }) {
-          try {
-              const { meetings } = cache.readQuery({ query: MEETINGS });
-              cache.writeQuery({
-                  query: MEETINGS,
-                  data: { meetings: [addMeeting, ...meetings] },
-              })
-          } catch (error) {
-              console.log(error)
-          }
-          const { me } = cache.readQuery({ query: GET_ME });
-          cache.writeQuery({
-              query: GET_ME,
-              data: { me: { ...me, meetings: [...me.meetings, addMeeting] } }
-          })
-      }
+  const [addMeeting] = useMutation(ADD_MEETING);
+
+  useEffect(() => {
+    return () => saveMeeting(savedMeeting);
   })
 
   const handleInputChange = (event) => {
