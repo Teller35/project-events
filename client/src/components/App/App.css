@@ -1,3 +1,11 @@
+body {
+    background-image: url(../../assets/large/Grand-Junction.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
 /* Slider CSS */
 .slider {
     position: relative;
@@ -101,6 +109,7 @@ footer h4 {
     padding-bottom: 2vw;
 }
 
+
 .developerStyle {
     display: flex;
     flex-wrap: wrap;
@@ -122,5 +131,3 @@ footer h4 {
     animation-duration: 4s;
     animation-iteration-count: infinite;
   }
-
-
