@@ -4,13 +4,14 @@ const dateFormat = require("../utils/dateFormat");
 
 const meetingSchema = new Schema(
   {
-    meetingTime: {
-      type: Date,
-      default: Date.now,
+    time: {
+      type: String,
+      required: true,
     },
     date: {
       type: String,
-      required: true
+      required: true,
+      get: date => dateFormat(date)
     },
     username: {
       type: String,

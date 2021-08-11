@@ -21,7 +21,7 @@ const typeDefs = gql`
   type Meeting {
     _id: ID
     date: String
-    meetingTime: String
+    time: String
     username: String
     place: String
     meetingType: String
@@ -67,7 +67,7 @@ const typeDefs = gql`
     addReaction(meetingId: ID!, reactionBody: String!): Meeting
 
     addMeeting(
-      meetingTime: String!
+      time: String!
       place: String!
       meetingType: String!
       date: String!
@@ -86,7 +86,8 @@ const typeDefs = gql`
 
     updateMeeting(
       _id: ID!
-      meetingTime: Int
+      time: String
+      date: String
       place: String
       meetingType: String
     ): Meeting

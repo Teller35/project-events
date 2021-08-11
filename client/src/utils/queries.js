@@ -13,7 +13,8 @@ export const GET_ME = gql`
       meetings {
         _id
         createdAt
-        meetingTime
+        time
+        date
         meetingType
         reactionsCount
         reactions {
@@ -43,9 +44,10 @@ export const GET_ALL = gql`
       friendsCount
       meetings {
         _id
-        meetingTime
+        time
+        date
         place
-        meetingTime
+        meetingType
         createdAt
         reactionsCount
         reactions {
@@ -65,7 +67,7 @@ export const ALL_MEETINGS = gql`
       _id
       date
       createdAt
-      meetingTime
+      time
       meetingType
       place
       reactionsCount
@@ -84,7 +86,8 @@ export const MEETINGS = gql`
       _id
       username
       meetingType
-      meetingTime
+      time
+      date
       place
       createdAt
       reactionsCount
@@ -95,7 +98,7 @@ export const MEETINGS = gql`
 export const SINGLE_MEETING = gql`
   query SINGLE_MEETING($id: ID!) {
     singleMeeting(_id: $id) {
-      meetingTime
+      time
       meetingType
       username
       date

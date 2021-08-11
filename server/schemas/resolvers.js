@@ -89,14 +89,14 @@ const resolvers = {
       }
       throw new AuthenticationError("Need to be logged in!");
     },
-    updateMeeting: async (parent, { _id, args }, context) => {
-      if (context.user) {
-        return await Meeting.findByIdAndUpdate(_id, args, {
-          new: true 
-        })
-      }
-      throw new AuthenticationError("Need to be logged in!");
-    },
+    // updateMeeting: async (parent, { _id, args }, context) => {
+    //   if (context.user) {
+    //     return await Meeting.findByIdAndUpdate(_id, args, {
+    //       new: true 
+    //     })
+    //   }
+    //   throw new AuthenticationError("Need to be logged in!");
+    // },
     deleteMeeting: async (parent, { meetingId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
