@@ -7,7 +7,8 @@ import AddReaction from "../AddReaction";
 
 const Events = ({ meetings, title }) => {
   const [showForm, setShowForm] = useState(false);
-
+  
+  
   if (!meetings.length) {
     return <h2>No events yet...</h2>;
   }
@@ -34,22 +35,9 @@ const Events = ({ meetings, title }) => {
                     Come join me at {meeting.place} for my {meeting.meetingType}{" "}
                     event it will held at {meeting.meetingTime}.
                   </Card.Text>
-                  <Button onClick={() => setShowForm(true)}>R.S.V.P.</Button>
-                  <Modal
-                    show={showForm}
-                    onHide={() => setShowForm(false)}
-                    backdrop="static"
-                    keyboard={false}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>
-                        R.S.V.P. by leaving a comment...
-                      </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <AddReaction handleModalClose={() => setShowForm(false)} />
-                    </Modal.Body>
-                  </Modal>
+                  <Link to={`/meeting/${meeting._id}`}>
+                  <Button>Check it out here</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>

@@ -29,6 +29,9 @@ const resolvers = {
     allMeetings: async () => {
       return await Meeting.find()
       .populate("reactions")
+    },
+    singleMeeting: async (parent, { _id }) => {
+      return Meeting.findOne({ _id });
     }
   },
   Mutation: {

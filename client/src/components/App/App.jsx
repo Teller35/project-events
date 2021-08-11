@@ -8,6 +8,7 @@ import "./App.css";
 import Nav from "../Nav";
 import Home from "../../pages/Home";
 import LandingPage from "../../pages/LandingPage";
+import SingleMeeting from "../../pages/SingleEvent";
 import Footer from "../Footer/Footer";
 //import Profile from "../../pages/Profile"
 
@@ -30,10 +31,11 @@ function App() {
         <div>
           <Nav />
           <Switch>
-            <Route exact path="/home" component={Home}></Route>
-            <Route exact path="/" component={LandingPage}></Route>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/meeting/:id" component={SingleMeeting} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     </ApolloProvider>

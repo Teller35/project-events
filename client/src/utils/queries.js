@@ -60,21 +60,21 @@ export const GET_ALL = gql`
 `;
 
 export const ALL_MEETINGS = gql`
-{
-allMeetings {
-  _id
-  createdAt
-  meetingTime
-  meetingType
-  place
-  reactionsCount
-  reactions {
-    reactionBody
-    username
-    createdAt
+  {
+    allMeetings {
+      _id
+      createdAt
+      meetingTime
+      meetingType
+      place
+      reactionsCount
+      reactions {
+        reactionBody
+        username
+        createdAt
+      }
+    }
   }
-}
-}
 `;
 
 export const MEETINGS = gql`
@@ -87,6 +87,25 @@ export const MEETINGS = gql`
       place
       createdAt
       reactionsCount
+    }
+  }
+`;
+
+export const SINGLE_MEETING = gql`
+  query SINGLE_MEETING($id: ID!) {
+    singleMeeting(_id: $id) {
+      meetingTime
+      meetingType
+      username
+      place
+      createdAt
+      reactionsCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
     }
   }
 `;
