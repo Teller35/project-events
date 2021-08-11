@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
-import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+import DateTimePicker from "react-datetime-picker";
 // import { MEETINGS, GET_ME } from "../../utils/queries";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
@@ -11,15 +10,13 @@ import Auth from "../../utils/auth";
 const AddEventForm = ({ handleModalClose }) => {
   const [formState, setFormState] = useState({
     meetingType: "",
-    meetingTime: "",
     place: "",
   });
   const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [date, onChange] = useState();
   const [addMeeting] = useMutation(ADD_MEETING);
-  //  const handleModalClose = useState(false)
+  const [date, onChange] = useState(new Date());
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
@@ -70,19 +67,7 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="meetingTime">Time: </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="What is the event time"
-            name="meetingTime"
-            onChange={handleInputChange}
-            value={formState.meetingTime}
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Calendar
-          name='date'
+          <DateTimePicker
           onChange={onChange}
           value={date}
           />
@@ -92,8 +77,7 @@ const AddEventForm = ({ handleModalClose }) => {
             disabled={
               !(
                 formState.meetingType &&
-                formState.place &&
-                formState.meetingTime
+                formState.place
               )
             }
             type="submit"

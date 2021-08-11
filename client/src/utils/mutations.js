@@ -32,19 +32,16 @@ export const ADD_USER = gql`
 
 export const ADD_MEETING = gql`
   mutation addMeeting(
-    $time: String!
     $place: String!
     $meetingType: String!
     $date: String!
   ) {
     addMeeting(
-      time: $time
       place: $place
       meetingType: $meetingType
       date: $date
     ) {
       _id
-      time
       username
       place
       meetingType
