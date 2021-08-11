@@ -99,14 +99,14 @@ footer {
 footer h4 {
     display: flex;
     justify-content: center;
-    padding-top: 2vw;
+    padding-top: 1vw;
 }
 
 .footerArea {
     display: flex;
     justify-content: center;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 

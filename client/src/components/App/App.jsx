@@ -9,6 +9,7 @@ import Nav from "../Nav";
 import Home from "../../pages/Home";
 import LandingPage from "../../pages/LandingPage";
 import Footer from "../Footer/Footer";
+import SideBar from "../SideBar/SideBar";
 //import Profile from "../../pages/Profile"
 
 const client = new ApolloClient({
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/home" component={Home}></Route>
             <Route exact path="/" component={LandingPage}></Route>
           </Switch>
+          <SideBar />
           <Footer />
         </div>
       </Router>
