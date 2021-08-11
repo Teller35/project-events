@@ -7,7 +7,10 @@ const meetingSchema = new Schema(
     meetingTime: {
       type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+    },
+    date: {
+      type: String,
+      required: true
     },
     username: {
       type: String,

@@ -2,41 +2,43 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 // import { MEETINGS, GET_ME } from "../../utils/queries";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
 const AddEventForm = ({ handleModalClose }) => {
-    const [formState, setFormState] = useState({
-        meetingType: "",
-        meetingTime: "",
-        place: ""
-    })
-    const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
-    const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-  
+  const [formState, setFormState] = useState({
+    meetingType: "",
+    meetingTime: "",
+    place: "",
+  });
+  const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [date, onChange] = useState();
   const [addMeeting] = useMutation(ADD_MEETING);
   //  const handleModalClose = useState(false)
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
-  })
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value })
-  }
+    setFormState({ ...formState, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
-      try {
-        await addMeeting({
-          variables: { ...formState },
-        })
-      } catch (error) {
+    try {
+      await addMeeting({
+        variables: { ...formState, date },
+      });
+} catch (error) {
       console.log(error);
-      }
-  }
+    }
+  };
 
   return (
     <>
@@ -76,6 +78,13 @@ const AddEventForm = ({ handleModalClose }) => {
             onChange={handleInputChange}
             value={formState.meetingTime}
             required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Calendar
+          name='date'
+          onChange={onChange}
+          value={date}
           />
         </Form.Group>
         <Modal.Footer>

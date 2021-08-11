@@ -63,6 +63,7 @@ export const ALL_MEETINGS = gql`
   {
     allMeetings {
       _id
+      date
       createdAt
       meetingTime
       meetingType
@@ -97,6 +98,7 @@ export const SINGLE_MEETING = gql`
       meetingTime
       meetingType
       username
+      date
       place
       createdAt
       reactionsCount

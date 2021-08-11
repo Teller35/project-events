@@ -35,11 +35,13 @@ export const ADD_MEETING = gql`
     $meetingTime: String!
     $place: String!
     $meetingType: String!
+    $date: String!
   ) {
     addMeeting(
       meetingTime: $meetingTime
       place: $place
       meetingType: $meetingType
+      date: $date
     ) {
       _id
       meetingTime
@@ -47,6 +49,7 @@ export const ADD_MEETING = gql`
       place
       meetingTime
       createdAt
+      date
     }
   }
 `;

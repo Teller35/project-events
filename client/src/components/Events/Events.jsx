@@ -32,8 +32,8 @@ const Events = ({ meetings, title }) => {
                     Comments: {meeting.reactionsCount}
                   </Card.Subtitle>
                   <Card.Text className="text-center">
-                    Come join me at {meeting.place} for my {meeting.meetingType}{" "}
-                    event it will held at {meeting.meetingTime}.
+                    Come join me at {meeting.place} for my {meeting.meetingType}
+                    event it will held at {meeting.date}.
                   </Card.Text>
                   <Link to={`/meeting/${meeting._id}`}>
                   <Button>Check it out here</Button>

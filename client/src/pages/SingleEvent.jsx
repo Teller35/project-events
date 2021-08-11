@@ -38,7 +38,7 @@ const SingleMeeting = (props) => {
             </Card.Subtitle>
             <Card.Text className="text-center fs-5">
               Come join me at {meeting.place} for my {meeting.meetingType} event
-              it will held at {meeting.meetingTime}.
+              it will held at {meeting.date}.
             </Card.Text>
             <Card.Text className="text-center fs-4">
                 Comments:

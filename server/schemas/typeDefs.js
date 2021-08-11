@@ -20,6 +20,7 @@ const typeDefs = gql`
 
   type Meeting {
     _id: ID
+    date: String
     meetingTime: String
     username: String
     place: String
@@ -69,6 +70,7 @@ const typeDefs = gql`
       meetingTime: String!
       place: String!
       meetingType: String!
+      date: String!
     ): Meeting
 
     addFriend(friendId: ID!): User
