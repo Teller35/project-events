@@ -14,9 +14,11 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      {loggedIn && (
+        <div>
         <Events meetings={meetings} title="This is what is going on...." />
       </div>
+      )}
     </div>
   );
 };

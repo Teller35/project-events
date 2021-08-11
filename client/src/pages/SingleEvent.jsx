@@ -9,6 +9,7 @@ import Auth from "../utils/auth";
 
 const SingleMeeting = (props) => {
   const [showForm, setShowForm] = useState(false);
+  const loggedIn = Auth.loggedIn();
 
   const { id: meetingId } = useParams();
   const { loading, data } = useQuery(SINGLE_MEETING, {
@@ -22,6 +23,7 @@ const SingleMeeting = (props) => {
 
   return (
     <div>
+      {loggedIn && (
       <Col className="p-2">
         <Card
           style={{ width: "auto" }}
@@ -55,12 +57,13 @@ const SingleMeeting = (props) => {
                 <Modal.Title>R.S.V.P. by leaving a comment...</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <AddReaction handleModalClose={() => setShowForm(false)} />
+                <AddReaction meetingId={meetingId} handleModalClose={() => setShowForm(false)} />
               </Modal.Body>
             </Modal>
           </Card.Body>
         </Card>
       </Col>
+      )}
     </div>
   );
 };
