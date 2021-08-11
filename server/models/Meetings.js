@@ -18,6 +18,14 @@ const meetingSchema = new Schema(
       required: true,
       maxLength: 280,
     },
+    city: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
     meetingType: {
       type: String,
       required: true,

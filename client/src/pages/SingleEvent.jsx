@@ -37,7 +37,7 @@ const SingleMeeting = (props) => {
               Brought to you by: {meeting.username}
             </Card.Subtitle>
             <Card.Text className="text-center fs-5">
-              Come join me at {meeting.place} for my {meeting.meetingType} event
+              Come join me at <span className="fw-bold">{meeting.place} in {meeting.city}</span> for my <span className="fw-bold">{meeting.meetingType}</span> event
               it will held at {meeting.date}.
             </Card.Text>
             <Card.Text className="text-center fs-4">

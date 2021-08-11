@@ -13,8 +13,10 @@ export const GET_ME = gql`
       meetings {
         _id
         createdAt
-        time
         date
+        place
+        city
+        state
         meetingType
         reactionsCount
         reactions {
@@ -46,6 +48,8 @@ export const GET_ALL = gql`
         _id
         date
         place
+        city
+        state
         meetingType
         createdAt
         reactionsCount
@@ -68,6 +72,8 @@ export const ALL_MEETINGS = gql`
       createdAt
       meetingType
       place
+      city
+      state
       reactionsCount
       reactions {
         reactionBody
@@ -86,6 +92,8 @@ export const MEETINGS = gql`
       meetingType
       date
       place
+      city
+      state
       createdAt
       reactionsCount
     }
@@ -99,6 +107,8 @@ export const SINGLE_MEETING = gql`
       username
       date
       place
+      city
+      state
       createdAt
       reactionsCount
       reactions {

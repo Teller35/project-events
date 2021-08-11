@@ -23,6 +23,8 @@ const typeDefs = gql`
     date: String
     username: String
     place: String
+    city: String
+    state: String
     meetingType: String
     createdAt: String
     reactionsCount: Int
@@ -67,6 +69,8 @@ const typeDefs = gql`
 
     addMeeting(
       place: String!
+      city: String!
+      state: String!
       meetingType: String!
       date: String!
     ): Meeting
@@ -86,6 +90,8 @@ const typeDefs = gql`
       _id: ID!
       date: String
       place: String
+      city: String
+      state: String
       meetingType: String
     ): Meeting
 

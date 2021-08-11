@@ -3,7 +3,6 @@ import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
 import DateTimePicker from "react-datetime-picker";
-// import { MEETINGS, GET_ME } from "../../utils/queries";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
@@ -11,6 +10,8 @@ const AddEventForm = ({ handleModalClose }) => {
   const [formState, setFormState] = useState({
     meetingType: "",
     place: "",
+    city: "",
+    state: "",
   });
   const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
@@ -28,6 +29,8 @@ const AddEventForm = ({ handleModalClose }) => {
   };
 
   const handleFormSubmit = async (event) => {
+    // event.preventDefault();
+    // console.log(formState, date)
     try {
       await addMeeting({
         variables: { ...formState, date },
@@ -67,6 +70,29 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
+          <Form.Label htmlFor="city">City: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What city is this in?"
+            name="city"
+            onChange={handleInputChange}
+            value={formState.city}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="state">State: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What state is this in?"
+            name="state"
+            onChange={handleInputChange}
+            value={formState.state}
+            required
+          />
+        </Form.Group>
+        <Form.Label htmlFor="place">Date/Time: </Form.Label>
+        <Form.Group>
           <DateTimePicker
           onChange={onChange}
           value={date}
@@ -77,7 +103,9 @@ const AddEventForm = ({ handleModalClose }) => {
             disabled={
               !(
                 formState.meetingType &&
-                formState.place
+                formState.place &&
+                formState.city &&
+                formState.state 
               )
             }
             type="submit"

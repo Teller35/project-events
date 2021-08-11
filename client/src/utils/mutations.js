@@ -34,16 +34,22 @@ export const ADD_MEETING = gql`
   mutation addMeeting(
     $place: String!
     $meetingType: String!
+    $city: String!
+    $state: String!
     $date: String!
   ) {
     addMeeting(
       place: $place
+      city: $city
+      state: $state
       meetingType: $meetingType
       date: $date
     ) {
       _id
       username
       place
+      city
+      state
       meetingType
       createdAt
       date
