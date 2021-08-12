@@ -32,6 +32,9 @@ const resolvers = {
     },
     singleMeeting: async (parent, { _id }) => {
       return Meeting.findOne({ _id });
+    },
+    searchCategory: async (parent, { category }) => {
+      return Meeting.findOne({ category })
     }
   },
   Mutation: {

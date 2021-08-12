@@ -125,3 +125,25 @@ export const SINGLE_MEETING = gql`
     }
   }
 `;
+
+export const SEARCH_CATEGORY = gql`
+  query SEARCH_CATEGORY($category: String!) {
+    searchCategory(category: $category) {
+      date
+      meetingType
+      username
+      place
+      city
+      state
+      category
+      createdAt
+      reactionsCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
