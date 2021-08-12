@@ -49,7 +49,7 @@ const typeDefs = gql`
     meetings(username: String!): [Meeting]
     singleMeeting(_id: ID!): Meeting
     allMeetings: [Meeting]
-    searchCategory(category: String!): Meeting
+    searchCategory(category: String!): [Meeting]
   }
 
   type Mutation {

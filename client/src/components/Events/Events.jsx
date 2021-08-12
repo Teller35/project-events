@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Button, Col, Modal } from "react-bootstrap";
+import * as FaIcons from "react-icons/fa";
 import ReactionForm from "../AddReaction";
 import { Link } from "react-router-dom";
 import "./Events.css";

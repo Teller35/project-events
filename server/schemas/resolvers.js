@@ -34,7 +34,10 @@ const resolvers = {
       return Meeting.findOne({ _id });
     },
     searchCategory: async (parent, { category }) => {
-      return Meeting.findOne({ category })
+      const params = category ? { category } : {};
+      return Meeting.find(params)
+      .populate("meetings")
+      .populate("reactions")
     }
   },
   Mutation: {

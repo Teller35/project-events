@@ -8,30 +8,31 @@ import AddReaction from "../components/AddReaction";
 import Reactions from "../components/Reactions";
 import Auth from "../utils/auth";
 
-const SearchMeetings = (props) => {
+const SearchMeetings = () => {
   const loggedIn = Auth.loggedIn();
   const [category, setCategory] = useState("");
+  //   const [meetings, setMeetings] = useState({});
   const [show, setShow] = useState(false);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-//   const category = useParams();
+  //   const category = useParams();
   const { loading, data } = useQuery(SEARCH_CATEGORY, {
-    variables: { category }
-});
-console.log(data)
-  const meeting = data?.searchCategory || {};
+    variables: { category },
+  });
+
+  const meetings = data?.searchCategory || [];
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(category);
+    
     // try {
-    //   await SEARCH_CATEGORY(category);
+    //   setCategory("");
     // } catch (error) {
     //   console.log(error);
     // }
   };
   return (
-    <div>
+    <div className="m-2 border border-5 rounded">
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -76,66 +77,64 @@ console.log(data)
                 <option value="Water">Water</option>
               </Form.Control>
             </Form.Group>
-          <Button
-            type="submit"
-            
-            onClick={() => setShow(false)}
-          >
-            Search
-          </Button>
+            <Button type="submit" onClick={() => setShow(false)}>
+              Close
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer >
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
-      {loggedIn && (
-        <>
-          <h2>
-            What kind of event are you looking for?{" "}
-              <FaIcons.FaSearch onClick={() => setShow(true)}/>
-          </h2>
-          <Row xs={1} md={2} lg={3}>
-        {/* {meetings &&
-          meetings.map((meeting) => ( */}
-            <Col className="p-2">
-              <Card
-                style={{ width: "20rem" }}
-                className="Border m-auto"
-                key={meeting._id}
-              >
-                <Card.Body className="Border">
-                  <Card.Title className="text-center">
-                    {meeting.meetingType}
-                  </Card.Title>
-                  <Card.Subtitle className="text-center">
-                    Category: {meeting.category}
-                  </Card.Subtitle>
-                  <Card.Subtitle className="text-center">
-                    Location: {meeting.city}, {meeting.state}
-                  </Card.Subtitle>
-                  <Card.Subtitle className="text-center">
-                    Comments: {meeting.reactionsCount}
-                  </Card.Subtitle>
-                  <Card.Text className="text-center">
-                    Come join me at
-                    <text className="fw-bold">
-                      {" "}
-                      {meeting.place} in {meeting.city}
-                    </text>{" "}
-                    for my
-                    <text className="fw-bold"> {meeting.meetingType}</text>{" "}
-                    event it will held at {meeting.date}.
-                  </Card.Text>
-                  <Link to={`/meeting/${meeting._id}`}>
-                    <Button>Check it out here</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            </Col>
-          {/* ))} */}
+      {/* {loggedIn && ( */}
+      <>
+        <h2>
+          What kind of event are you looking for?{" "}
+          <FaIcons.FaSearch onClick={() => setShow(true)} className="cursor"/>
+        </h2>
+        <Row xs={1} md={2} lg={3}>
+          {meetings &&
+            meetings.map((meeting) => (
+              <Col className="p-2">
+                <Card
+                  style={{ width: "20rem" }}
+                  className="Border m-auto"
+                  key={meeting._id}
+                >
+                  <Card.Body className="Border">
+                    <Card.Title className="text-center">
+                      {meeting.meetingType}
+                    </Card.Title>
+                    <Card.Subtitle className="text-center">
+                      Category: {meeting.category}
+                    </Card.Subtitle>
+                    <Card.Subtitle className="text-center">
+                      Location: {meeting.city}, {meeting.state}
+                    </Card.Subtitle>
+                    <Card.Subtitle className="text-center">
+                      Comments: {meeting.reactionsCount}
+                    </Card.Subtitle>
+                    <Card.Text className="text-center">
+                      Come join me at
+                      <text className="fw-bold">
+                        {" "}
+                        {meeting.place} in {meeting.city}
+                      </text>{" "}
+                      for my
+                      <text className="fw-bold">
+                        {" "}
+                        {meeting.meetingType}
+                      </text>{" "}
+                      event it will held at {meeting.date}.
+                    </Card.Text>
+                    <Link to={`/meeting/${meeting._id}`}>
+                      <Button>Check it out here</Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
         </Row>
-        </>
-      )}
+      </>
+      {/* )} */}
     </div>
   );
 };
