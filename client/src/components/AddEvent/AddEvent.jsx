@@ -35,7 +35,7 @@ const AddEventForm = ({ handleModalClose }) => {
       await addMeeting({
         variables: { ...formState, date },
       });
-} catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -47,6 +47,22 @@ const AddEventForm = ({ handleModalClose }) => {
           Something went wrong!
         </Alert>
 
+        <Form.Group>
+        <Form.Label htmlFor="meetingType">Category: </Form.Label>
+          <Form.Select size="sm">
+            <option>...</option>
+            <option value="community">Community</option>
+            <option value="concert">Concerts</option>
+            <option value="conference">Conferences</option>
+            <option value="expo">Expos</option>
+            <option value="festival">Festivals</option>
+            <option value="other">Other</option>
+            <option value="performArt">Performing Arts</option>
+            <option value="private">Private</option>
+            <option value="protest">Protests</option>
+            <option value="sport">Sports</option>
+          </Form.Select>
+        </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="meetingType">Event Type: </Form.Label>
           <Form.Control
@@ -93,10 +109,7 @@ const AddEventForm = ({ handleModalClose }) => {
         </Form.Group>
         <Form.Label htmlFor="place">Date/Time: </Form.Label>
         <Form.Group>
-          <DateTimePicker
-          onChange={onChange}
-          value={date}
-          />
+          <DateTimePicker onChange={onChange} value={date} />
         </Form.Group>
         <Modal.Footer>
           <Button
@@ -105,7 +118,7 @@ const AddEventForm = ({ handleModalClose }) => {
                 formState.meetingType &&
                 formState.place &&
                 formState.city &&
-                formState.state 
+                formState.state
               )
             }
             type="submit"
