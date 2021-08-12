@@ -60,23 +60,21 @@ export const GET_ALL = gql`
 `;
 
 export const ALL_MEETINGS = gql`
-  query ALL_MEETINGS{
-    users {
-      meetings {
-        _id
-        createdAt
-        meetingTime
-        meetingType
-        place
-        reactionsCount
-        reactions {
-          reactionBody
-          username
-          createdAt
-        }
-      }
-    }
+{
+allMeetings {
+  _id
+  createdAt
+  meetingTime
+  meetingType
+  place
+  reactionsCount
+  reactions {
+    reactionBody
+    username
+    createdAt
   }
+}
+}
 `;
 
 export const MEETINGS = gql`
