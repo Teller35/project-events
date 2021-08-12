@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/meeting/:id" component={SingleMeeting} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
