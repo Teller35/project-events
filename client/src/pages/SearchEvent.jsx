@@ -10,24 +10,18 @@ import Auth from "../utils/auth";
 
 const SearchMeetings = () => {
   const loggedIn = Auth.loggedIn();
-  const [formState, setFormState] = useState("");
+  const [category, setCategory] = useState("");
   const [show, setShow] = useState(false);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const category = useParams();
-  const { loading, data } = useQuery(SEARCH_CATEGORY, {
-    variables: { category },
-  });
-  const meetings = data?.searchMeetings || {};
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({ category, [name]: value });
-  };
+//   const { loading, data } = useQuery(SEARCH_CATEGORY, {
+//     variables: { category }
+//   });
+//   const meetings = data?.searchCategory || {};
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(formState.category);
+    console.log(category);
     // try {
     //   await ({
     //     variables: {  },
@@ -64,8 +58,8 @@ const SearchMeetings = () => {
               <Form.Control
                 as="select"
                 name="category"
-                onChange={handleInputChange}
-                value={formState.category}
+                onChange={(e) => setCategory(e.target.value)}
+                value={category}
               >
                 <option>...</option>
                 <option value="Community">Community</option>
@@ -84,10 +78,9 @@ const SearchMeetings = () => {
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer onSubmit={handleFormSubmit}>
           <Button
             type="submit"
-            onSubmit={handleFormSubmit}
             onClick={() => setShow(false)}
           >
             Search
@@ -98,9 +91,7 @@ const SearchMeetings = () => {
         <>
           <h2>
             What kind of event are you looking for?{" "}
-            <Link onClick={() => setShow(true)}>
-              <FaIcons.FaSearch />
-            </Link>
+              <FaIcons.FaSearch onClick={() => setShow(true)}/>
           </h2>
           {/* <Row xs={1} md={2} lg={3}>
         {meetings &&
