@@ -1,0 +1,11 @@
+.Border {
+    box-shadow: 0 0 20px rgb(25, 25, 112);
+    border: 6px solid rgb(135, 206, 235);
+    background-color: #69A583;
+    border-radius: 10px;
+    opacity: .7;
+}
+
+.Border:hover {
+    opacity: .9;
+}
