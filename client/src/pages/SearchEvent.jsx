@@ -8,24 +8,24 @@ import AddReaction from "../components/AddReaction";
 import Reactions from "../components/Reactions";
 import Auth from "../utils/auth";
 
-const SearchMeetings = () => {
+const SearchMeetings = (props) => {
   const loggedIn = Auth.loggedIn();
   const [category, setCategory] = useState("");
   const [show, setShow] = useState(false);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-//   const { loading, data } = useQuery(SEARCH_CATEGORY, {
-//     variables: { category }
-//   });
-//   const meetings = data?.searchCategory || {};
+//   const category = useParams();
+  const { loading, data } = useQuery(SEARCH_CATEGORY, {
+    variables: { category }
+});
+console.log(data)
+  const meeting = data?.searchCategory || {};
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(category);
     // try {
-    //   await ({
-    //     variables: {  },
-    //   });
+    //   await SEARCH_CATEGORY(category);
     // } catch (error) {
     //   console.log(error);
     // }
@@ -42,7 +42,7 @@ const SearchMeetings = () => {
           <Modal.Title>Search for event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form noValidate validated={validated}>
+          <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
             <Alert
               dismissible
               onclose={() => setShowAlert(false)}
@@ -76,15 +76,16 @@ const SearchMeetings = () => {
                 <option value="Water">Water</option>
               </Form.Control>
             </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer onSubmit={handleFormSubmit}>
           <Button
             type="submit"
+            
             onClick={() => setShow(false)}
           >
             Search
           </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer >
         </Modal.Footer>
       </Modal>
       {loggedIn && (
@@ -93,9 +94,9 @@ const SearchMeetings = () => {
             What kind of event are you looking for?{" "}
               <FaIcons.FaSearch onClick={() => setShow(true)}/>
           </h2>
-          {/* <Row xs={1} md={2} lg={3}>
-        {meetings &&
-          meetings.map((meeting) => (
+          <Row xs={1} md={2} lg={3}>
+        {/* {meetings &&
+          meetings.map((meeting) => ( */}
             <Col className="p-2">
               <Card
                 style={{ width: "20rem" }}
@@ -131,8 +132,8 @@ const SearchMeetings = () => {
                 </Card.Body>
               </Card>
             </Col>
-          ))}
-        </Row> */}
+          {/* ))} */}
+        </Row>
         </>
       )}
     </div>
