@@ -13,11 +13,6 @@ const typeDefs = gql`
     friends: [User]
   }
 
-  type Category {
-    _id: ID
-    name: String
-  }
-
   type Meeting {
     _id: ID
     date: String
@@ -25,6 +20,7 @@ const typeDefs = gql`
     place: String
     city: String
     state: String
+    category: String
     meetingType: String
     createdAt: String
     reactionsCount: Int
@@ -71,6 +67,7 @@ const typeDefs = gql`
       place: String!
       city: String!
       state: String!
+      category: String!
       meetingType: String!
       date: String!
     ): Meeting
@@ -92,6 +89,7 @@ const typeDefs = gql`
       place: String
       city: String
       state: String
+      category: String
       meetingType: String
     ): Meeting
 

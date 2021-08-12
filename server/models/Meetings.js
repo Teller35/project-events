@@ -26,6 +26,10 @@ const meetingSchema = new Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+      required: true
+    },
     meetingType: {
       type: String,
       required: true,

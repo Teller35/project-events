@@ -29,13 +29,16 @@ const Events = ({ meetings, title }) => {
                     {meeting.meetingType}
                   </Card.Title>
                   <Card.Subtitle className="text-center">
+                    Category: {meeting.category}
+                  </Card.Subtitle>
+                  <Card.Subtitle className="text-center">
                     Location: {meeting.city}, {meeting.state}
                   </Card.Subtitle>
                   <Card.Subtitle className="text-center">
                     Comments: {meeting.reactionsCount}
                   </Card.Subtitle>
                   <Card.Text className="text-center">
-                    Come join me at <span className="fw-bold">{meeting.place}</span> for my <span className="fw-bold">{meeting.meetingType}</span>{" "}
+                    Come join me at<span className="fw-bold">{meeting.place}</span> for my<span className="fw-bold">{meeting.meetingType}</span>{" "}
                   event it will held at {meeting.date}.
                   </Card.Text>
                   <Link to={`/meeting/${meeting._id}`}>

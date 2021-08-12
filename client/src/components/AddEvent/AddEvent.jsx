@@ -31,15 +31,15 @@ const AddEventForm = ({ handleModalClose }) => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState, date)
-    // try {
-    //   await addMeeting({
-    //     variables: { ...formState, date },
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    // event.preventDefault();
+    // console.log(formState, date)
+    try {
+      await addMeeting({
+        variables: { ...formState, date },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -58,16 +58,18 @@ const AddEventForm = ({ handleModalClose }) => {
         value={formState.category}
         >
             <option>...</option>
-            <option value="community">Community</option>
-            <option value="concert">Concerts</option>
-            <option value="conference">Conferences</option>
-            <option value="expo">Expos</option>
-            <option value="festival">Festivals</option>
-            <option value="other">Other</option>
-            <option value="performArt">Performing Arts</option>
-            <option value="private">Private</option>
-            <option value="protest">Protests</option>
-            <option value="sport">Sports</option>
+            <option value="Community">Community</option>
+            <option value="Concert">Concerts</option>
+            <option value="Conference">Conferences</option>
+            <option value="Expo">Expos</option>
+            <option value="Festival">Festivals</option>
+            <option value="Food">Food</option>
+            <option value="Other">Other</option>
+            <option value="Performing Arts">Performing Arts</option>
+            <option value="Private">Private</option>
+            <option value="Protest">Protests</option>
+            <option value="Sport">Sports</option>
+            <option value="Water">Water</option>
     </Form.Control>
         </Form.Group>
         <Form.Group>
