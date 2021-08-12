@@ -6,6 +6,12 @@ body {
   height: 100%;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 56%;
+}
+
 /* Nav CSS */
 .navBar {
   background-color: #060b26;
@@ -19,6 +25,7 @@ body {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  color: #f5f5f5;
 }
 
 .nav-menu {
@@ -36,6 +43,7 @@ body {
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  z-index:100; position: fixed;
 }
 
 .nav-text {
@@ -69,12 +77,17 @@ body {
 }
 
 .navbar-toggle {
+  color: #f5f5f5;
   background-color: #060b26;
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: start;
   align-items: center;
+}
+
+.navbar-toggle:hover {
+  color: #f5f5f5;
 }
 
 span {
