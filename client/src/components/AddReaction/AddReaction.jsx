@@ -3,8 +3,7 @@ import { Modal, Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_REACTION } from "../../utils/mutations";
 
-const ReactionForm = ({ meetingsId }) => {
-  const [showForm, setShowForm] = useState(false);
+const AddReaction = ({ meetingId }) => {
   const [reactionBody, setReactionBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [validated] = useState(false);
@@ -21,7 +20,7 @@ const ReactionForm = ({ meetingsId }) => {
   const handleFormSubmit = async (event) => {
     try {
       await addReaction({
-        variables: { reactionBody, meetingsId },
+        variables: { reactionBody, meetingId },
       });
       setReactionBody("");
       setCharacterCount(0);
@@ -70,4 +69,4 @@ const ReactionForm = ({ meetingsId }) => {
   );
 };
 
-export default ReactionForm;
+export default AddReaction;

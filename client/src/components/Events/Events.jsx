@@ -7,7 +7,8 @@ import AddReaction from "../AddReaction";
 
 const Events = ({ meetings, title }) => {
   const [showForm, setShowForm] = useState(false);
-
+  
+  
   if (!meetings.length) {
     return <h2>No events yet...</h2>;
   }
@@ -28,28 +29,18 @@ const Events = ({ meetings, title }) => {
                     {meeting.meetingType}
                   </Card.Title>
                   <Card.Subtitle className="text-center">
+                    Location: {meeting.city}, {meeting.state}
+                  </Card.Subtitle>
+                  <Card.Subtitle className="text-center">
                     Comments: {meeting.reactionsCount}
                   </Card.Subtitle>
                   <Card.Text className="text-center">
-                    Come join me at {meeting.place} for my {meeting.meetingType}{" "}
-                    event it will held at {meeting.meetingTime}.
+                    Come join me at <span className="fw-bold">{meeting.place}</span> for my <span className="fw-bold">{meeting.meetingType}</span>{" "}
+                  event it will held at {meeting.date}.
                   </Card.Text>
-                  <Button onClick={() => setShowForm(true)}>R.S.V.P.</Button>
-                  <Modal
-                    show={showForm}
-                    onHide={() => setShowForm(false)}
-                    backdrop="static"
-                    keyboard={false}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>
-                        R.S.V.P. by leaving a comment...
-                      </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <AddReaction handleModalClose={() => setShowForm(false)} />
-                    </Modal.Body>
-                  </Modal>
+                  <Link to={`/meeting/${meeting._id}`}>
+                  <Button>Check it out here</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </Col>

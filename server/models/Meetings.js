@@ -4,10 +4,10 @@ const dateFormat = require("../utils/dateFormat");
 
 const meetingSchema = new Schema(
   {
-    meetingTime: {
-      type: Date,
-      default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+    date: {
+      type: String,
+      required: true,
+      get: date => dateFormat(date)
     },
     username: {
       type: String,
@@ -17,6 +17,14 @@ const meetingSchema = new Schema(
       type: String,
       required: true,
       maxLength: 280,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
     },
     meetingType: {
       type: String,

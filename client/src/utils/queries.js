@@ -13,7 +13,10 @@ export const GET_ME = gql`
       meetings {
         _id
         createdAt
-        meetingTime
+        date
+        place
+        city
+        state
         meetingType
         reactionsCount
         reactions {
@@ -43,9 +46,11 @@ export const GET_ALL = gql`
       friendsCount
       meetings {
         _id
-        meetingTime
+        date
         place
-        meetingTime
+        city
+        state
+        meetingType
         createdAt
         reactionsCount
         reactions {
@@ -60,21 +65,23 @@ export const GET_ALL = gql`
 `;
 
 export const ALL_MEETINGS = gql`
-{
-allMeetings {
-  _id
-  createdAt
-  meetingTime
-  meetingType
-  place
-  reactionsCount
-  reactions {
-    reactionBody
-    username
-    createdAt
+  {
+    allMeetings {
+      _id
+      date
+      createdAt
+      meetingType
+      place
+      city
+      state
+      reactionsCount
+      reactions {
+        reactionBody
+        username
+        createdAt
+      }
+    }
   }
-}
-}
 `;
 
 export const MEETINGS = gql`
@@ -83,10 +90,33 @@ export const MEETINGS = gql`
       _id
       username
       meetingType
-      meetingTime
+      date
       place
+      city
+      state
       createdAt
       reactionsCount
+    }
+  }
+`;
+
+export const SINGLE_MEETING = gql`
+  query SINGLE_MEETING($id: ID!) {
+    singleMeeting(_id: $id) {
+      meetingType
+      username
+      date
+      place
+      city
+      state
+      createdAt
+      reactionsCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
     }
   }
 `;

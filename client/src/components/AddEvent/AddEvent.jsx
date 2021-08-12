@@ -2,41 +2,43 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
-// import { MEETINGS, GET_ME } from "../../utils/queries";
+import DateTimePicker from "react-datetime-picker";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 
 const AddEventForm = ({ handleModalClose }) => {
-    const [formState, setFormState] = useState({
-        meetingType: "",
-        meetingTime: "",
-        place: ""
-    })
-    const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
-    const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-  
+  const [formState, setFormState] = useState({
+    meetingType: "",
+    place: "",
+    city: "",
+    state: "",
+  });
+  const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
-  //  const handleModalClose = useState(false)
+  const [date, onChange] = useState(new Date());
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
-  })
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value })
-  }
+    setFormState({ ...formState, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
-      try {
-        await addMeeting({
-          variables: { ...formState },
-        })
-      } catch (error) {
+    // event.preventDefault();
+    // console.log(formState, date)
+    try {
+      await addMeeting({
+        variables: { ...formState, date },
+      });
+} catch (error) {
       console.log(error);
-      }
-  }
+    }
+  };
 
   return (
     <>
@@ -68,14 +70,32 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="meetingTime">Time: </Form.Label>
+          <Form.Label htmlFor="city">City: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="What is the event time"
-            name="meetingTime"
+            placeholder="What city is this in?"
+            name="city"
             onChange={handleInputChange}
-            value={formState.meetingTime}
+            value={formState.city}
             required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="state">State: </Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="What state is this in?"
+            name="state"
+            onChange={handleInputChange}
+            value={formState.state}
+            required
+          />
+        </Form.Group>
+        <Form.Label htmlFor="place">Date/Time: </Form.Label>
+        <Form.Group>
+          <DateTimePicker
+          onChange={onChange}
+          value={date}
           />
         </Form.Group>
         <Modal.Footer>
@@ -84,7 +104,8 @@ const AddEventForm = ({ handleModalClose }) => {
               !(
                 formState.meetingType &&
                 formState.place &&
-                formState.meetingTime
+                formState.city &&
+                formState.state 
               )
             }
             type="submit"
