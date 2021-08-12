@@ -1,133 +1,150 @@
 body {
-    background-image: url(../../assets/large/Grand-Junction.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
+  background-image: url(../../assets/large/Grand-Junction.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
 }
 
 /* Slider CSS */
 .slider {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sliderImg {
-    width: 1000px;
-    height: 600px;
-    border-radius: 10px;
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
 }
 
 .right-arrow {
-    position: absolute;
-    top: 50%; 
-    right: 32px;
-    font-size: 3rem;
-    color: #000;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
 }
 
 .left-arrow {
-    position: absolute;
-    top: 50%; 
-    left: 32px;
-    font-size: 3rem;
-    color: #000;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
 }
 
 .slide {
-    opacity: 0;
-    transition-duration: 1s ease ;
+  opacity: 0;
+  transition-duration: 1s ease;
 }
 
-.slide.active{
-    opacity: 1;
-    transition-duration: 1s;
-    transform: scale(1.08);
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
 }
 
 /* login/signup form Styling */
 .landingPage {
-    margin: 4vw;
+  margin: 4vw;
 }
 
 .landingPageInfo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: cornsilk;
-    padding: 1vw;
-    border-radius: 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: cornsilk;
+  padding: 1vw;
+  border-radius: 2vw;
 }
 
 .landingPageInfo p {
-    font-size: 1.5vw;
+  font-size: 1.5vw;
 }
 
 .loginArea {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 4vw;
-    width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4vw;
+  width: 50%;
 }
 
 .loginArea button {
-    background-color: blue;
-    color: white;
-    font-size: 2vw;
-    font-weight: bold;
-    border-radius: 1vw;
-    padding: 7px;
+  background-color: blue;
+  color: white;
+  font-size: 2vw;
+  font-weight: bold;
+  border-radius: 1vw;
+  padding: 7px;
 }
 
 /* Footer Styling */
 footer {
-    padding-left: 3vw;
-    padding-right: 3vw;
-    background-color: cornsilk;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  background-color: cornsilk;
 }
 
 footer h4 {
-    display: flex;
-    justify-content: center;
-    padding-top: 2vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
 }
 
 .footerArea {
-    display: flex;
-    justify-content: center;
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 }
 
-
 .developerStyle {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 70%;
 }
 
 @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  .appSpin img:hover {
-    animation: App-logo-spin;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
+.appSpin img:hover {
+  animation: App-logo-spin;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.MyRed {
+  color: red;
+  font-size: x-large;
+  opacity: 0.6;
+}
+
+.MyRed:hover {
+  opacity: .9;
+}
+
+.Border2 {
+  box-shadow: 0 0 20px rgb(25, 25, 112);
+  border: 6px solid rgb(135, 206, 235);
+  background-color: #69A583;
+  border-radius: 10px;
+  opacity: .9;
+}
