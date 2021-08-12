@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { SINGLE_MEETING } from "../utils/queries";
-import { Row, Col, Card, Button, Modal } from "react-bootstrap";
+import { Row, Col, Card, Button, Modal, CloseButton } from "react-bootstrap";
 import AddReaction from "../components/AddReaction";
 import Reactions from "../components/Reactions";
 import Auth from "../utils/auth";
@@ -30,6 +30,9 @@ const SingleMeeting = (props) => {
           className="Border m-auto"
         >
           <Card.Body className="Border">
+          <Link to="/home">
+            <CloseButton />
+            </Link>
             <Card.Title className="text-center fs-1">
               {meeting.meetingType}
             </Card.Title>
