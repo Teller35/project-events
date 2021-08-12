@@ -3,68 +3,112 @@ import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from 'react-icons/io';
-import { IconContext } from 'react-icons'
+import Auth from '../../utils/auth';
 
 
 function Navbar() {
   const [sidebar, setSideBar] = useState(false);
+  const showSideBar = () => setSideBar(!sidebar);
+  const [show, setShow] = useState(false);
 
-  const showSideBar = () => setSideBar(!sidebar)
-
-  return(
+  return (
     <>
-    <div className="navbar">
-      <Link to='#' className='menu-bars'>
-        <FaIcons.FaBars onClick={showSideBar}/>
-      </Link>
-    </div>
-    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-      <ul className='nav-menu-items' onClick={showSideBar}>
-        <li className="navbar-toggle">
-          <Link to="#" className='menu-bars'>
-            <AiIcons.AiOutlineClose />
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link href="/home">
-            <AiIcons.AiFillHome />
-            <span>
-              Home
-            </span>
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link to="/profile">
-          <IoIcons.IoIosPaper />
-            <span>Profile</span>
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link to="/">
-          <IoIcons.IoMdPeople />
-            <span>Login/SignUp</span>
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link to="#">
-          <IoIcons.IoMdPeople />
-          <span>Plan your next event</span>
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link to="#"><IoIcons.IoMdPeople />
-          <span>Support Page</span>
-          </Link>
-        </li>
-        <li className="nav-text">
-          <Link to="#">
-          <FaIcons.FaCartPlus/>
-          <span>Donate</span></Link>
-        </li>
-      </ul>
-    </nav>
+    <header>
+      <h1 className="text-center">E-V-E-N-T-S</h1>
+      <div className="navbar">
+        <Link to='#' className='menu-bars'>
+          {loginNav()}
+          <FaIcons.FaBars onClick={showSideBar}/>
+        </Link>
+      </div>
+    </header>
     </>
+    
   )
+
+  function loginNav() {
+    if (Auth.loggedIn()) {
+      return(
+        <>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSideBar}>
+            <li className="navbar-toggle">
+              <Link to="#" className='menu-bars'>
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link href="/home">
+                <AiIcons.AiFillHome />
+                <span>
+                  Home
+                </span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="/profile">
+              <IoIcons.IoIosPaper />
+                <span>Profile</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="#">
+              <IoIcons.IoMdPeople />
+              <span>Plan your next event</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="#"><IoIcons.IoMdPeople />
+              <span>Support Page</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="#">
+              <FaIcons.FaCartPlus/>
+              <span>Donate</span></Link>
+            </li>
+            <li className="nav-text">
+              <Link to="/" onClick={() => Auth.logout()}>
+              <IoIcons.IoMdPeople />
+              <span>Logout</span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        </>
+      )
+    } else {
+      return (
+        <>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <ul className='nav-menu-items' onClick={showSideBar}>
+            <li className="navbar-toggle">
+              <Link to="#" className='menu-bars'>
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="/">
+              <IoIcons.IoMdPeople />
+                <span>Login/<br/>SignUp</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="#"><IoIcons.IoMdPeople />
+              <span>Support Page</span>
+              </Link>
+            </li>
+            <li className="nav-text">
+              <Link to="#">
+              <FaIcons.FaCartPlus/>
+              <span>Donate</span></Link>
+            </li>
+            </ul>
+            </nav>
+        </>
+      )  
+    }
+  }
 }
 
 export default Navbar;
