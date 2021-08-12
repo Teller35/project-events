@@ -55,7 +55,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-text">
-              <Link href="/home">
+              <Link to="/home">
                 <AiIcons.AiFillHome />
                 <span>
                   Home
