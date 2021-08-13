@@ -1,8 +1,8 @@
 import React from "react";
-import Teller from "../../images/footer-images/teller.png";
-import Amber from "../../images/footer-images/amber.png";
-import David from "../../images/footer-images/david.png";
-import Brady from "../../images/footer-images/brady.png";
+import Teller from "../../assets/small/teller.png";
+import Amber from "../../assets/small/amber.png";
+import David from "../../assets/small/david.png";
+import Brady from "../../assets/small/david.png";
 
 const Footer = () => {
   return (
