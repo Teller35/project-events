@@ -39,15 +39,14 @@ const ImageSlider = () => {
 
   const [current, setCurrent] = useState(0);
   const length = sliderData.length;
-  const [intervalId, setIntervalId] = useState(0)
+  const [intervalId, setIntervalId] = useState(0);
 
-
-useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(() => {
-        setCurrent(current => current === length - 1 ? 0 : current + 1)
-    }, 2500)
-    return () => clearInterval(intervalId)
-}, []);
+      setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+    }, 2500);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section className="slider">
