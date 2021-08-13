@@ -86,7 +86,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-text">
-              <Link to="#">
+              <Link to="/donate">
               <FaIcons.FaDonate/>
               <span>Donate</span></Link>
             </li>
@@ -122,7 +122,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-text">
-              <Link to="#">
+              <Link to="/donate">
               <FaIcons.FaDonate/>
               <span>Donate</span></Link>
             </li>
