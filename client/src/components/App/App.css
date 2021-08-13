@@ -244,3 +244,46 @@ footer h4 {
 .cursor {
   cursor: pointer;
 }
+
+/* Donation Page */
+.donateMargin {
+  padding: 5vw;
+}
+
+.donateContainer {
+  background-color: cornsilk;
+  border-radius: 1vw;
+  text-align: center;
+  max-width: 70%;
+  max-height: fit-content;
+}
+
+.donateSection {
+  padding: 3vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+#donateBox {
+  height: 600px;
+  width: 100%;
+  max-height: none!important;
+}
+
+.donorWallContainer {
+  padding-left: 3vw;
+}
+
+#donarWall {
+  background-color: cornsilk;
+  width: auto;
+  max-width: 500px;
+  min-width: 310px;
+  max-height: none!important;
+  border-radius: 1vw;
+}

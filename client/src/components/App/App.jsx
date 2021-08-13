@@ -6,6 +6,7 @@ import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import Nav from "../Nav";
 import Home from "../../pages/Home";
+import Donate from "../../pages/Donate";
 import LandingPage from "../../pages/LandingPage";
 import SingleMeeting from "../../pages/SingleEvent";
 import SearchMeetings from "../../pages/SearchEvent";
@@ -33,6 +34,7 @@ function App() {
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route exact path="/" component={LandingPage} />
+            <Route exact path="/donate" component={Donate} />
             <Route exact path="/meeting/:id" component={SingleMeeting} />
             <Route exact path="/search" component={SearchMeetings} />
           </Switch>
