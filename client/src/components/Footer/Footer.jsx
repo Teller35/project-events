@@ -21,7 +21,7 @@ const Footer = () => {
             <h5>Teller</h5>
           </div>
           <div className="appSpin">
-            <a href="" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/amber-pratt-a57122205/" target="_blank" rel="noreferrer">
               <img src={Amber} alt="Amber's Icon" />
             </a>
             <h5>Amber</h5>
@@ -37,7 +37,7 @@ const Footer = () => {
             <h5>David</h5>
           </div>
           <div className="appSpin">
-            <a href="" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/brady-taylor-a93a67207/" target="_blank" rel="noreferrer">
               <img src={Brady} alt="Brady's Icon" />
             </a>
             <h5>Brady</h5>

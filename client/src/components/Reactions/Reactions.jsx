@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 
 const Reactions = ({ reactions }) => {
 return (

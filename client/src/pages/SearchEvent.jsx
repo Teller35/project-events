@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH_CATEGORY } from "../utils/queries";
 import { Alert, Row, Col, Card, Button, Modal, Form } from "react-bootstrap";
-import AddReaction from "../components/AddReaction";
-import Reactions from "../components/Reactions";
 import Auth from "../utils/auth";
 
 const SearchMeetings = () => {
@@ -16,7 +14,7 @@ const SearchMeetings = () => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   //   const category = useParams();
-  const { loading, data } = useQuery(SEARCH_CATEGORY, {
+  const { data } = useQuery(SEARCH_CATEGORY, {
     variables: { category },
   });
 
@@ -84,7 +82,7 @@ const SearchMeetings = () => {
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
-      {/* {loggedIn && ( */}
+      {loggedIn && ( 
       <>
         <h2>
           What kind of event are you looking for?{" "}
@@ -134,7 +132,7 @@ const SearchMeetings = () => {
             ))}
         </Row>
       </>
-      {/* )} */}
+      )}
     </div>
   );
 };

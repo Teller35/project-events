@@ -5,7 +5,7 @@ import Events from "../components/Events";
 import Auth from "../utils/auth";
 
 const Home = () => {
-  const { loading, data } = useQuery(ALL_MEETINGS);
+  const { data } = useQuery(ALL_MEETINGS);
 
 
   const meetings = data?.allMeetings || [];

@@ -12,11 +12,11 @@ const Donate = () => {
                         <p>In addition a portion of your donation will also be donated </p>
                     </div>
                     <div className="donateForm">
-                        <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe src="https://donorbox.org/embed/e-v-e-n-t-s" name="donorbox" allowpaymentrequest="" seamless="seamless" frameborder="0" scrolling="no" id="donateBox"></iframe>
+                        <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe title="title" src="https://donorbox.org/embed/e-v-e-n-t-s" name="donorbox" allowpaymentrequest="" seamless="seamless" frameborder="0" scrolling="no" id="donateBox"></iframe>
                     </div>
                 </div>
                 <div className="donorWallContainer">
-                    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe frameborder="0" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/e-v-e-n-t-s?only_donor_wall=true" id="donarWall"></iframe>
+                    <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe title="title" frameborder="0" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/e-v-e-n-t-s?only_donor_wall=true" id="donarWall"></iframe>
                 </div>
             </section>
         </div>
