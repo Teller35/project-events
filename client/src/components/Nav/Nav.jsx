@@ -75,6 +75,12 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-text">
+              <Link to="/search">
+              <FaIcons.FaSearch />
+              <span>Search</span>
+              </Link>
+            </li>
+            <li className="nav-text">
               <Link to="#"><IoIcons.IoMdPeople />
               <span>Support</span>
               </Link>

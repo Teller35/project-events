@@ -9,6 +9,7 @@ import Nav from "../Nav";
 import Home from "../../pages/Home";
 import LandingPage from "../../pages/LandingPage";
 import SingleMeeting from "../../pages/SingleEvent";
+import SearchMeetings from "../../pages/SearchEvent";
 import Footer from "../Footer/Footer";
 //import Profile from "../../pages/Profile"
 
@@ -34,6 +35,7 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/meeting/:id" component={SingleMeeting} />
+            <Route exact path="/search" component={SearchMeetings} />
           </Switch>
           <Footer />
         </div>

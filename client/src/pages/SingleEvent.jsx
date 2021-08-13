@@ -36,13 +36,11 @@ const SingleMeeting = (props) => {
               <Card.Subtitle className="text-center fs-4">
                 Brought to you by: {meeting.username}
               </Card.Subtitle>
+              <Card.Subtitle className="text-center fs-4">
+                Category: {meeting.category}
+              </Card.Subtitle>
               <Card.Text className="text-center fs-5">
-                Come join me at{" "}
-                <span className="fw-bold">
-                  {meeting.place} in {meeting.city}
-                </span>{" "}
-                for my <span className="fw-bold">{meeting.meetingType}</span>{" "}
-                event it will held at {meeting.date}.
+                Come join me at<text className="fw-bold"> {meeting.place} in {meeting.city}</text> for my<text className="fw-bold"> {meeting.meetingType}</text> event it will held at {meeting.date}.
               </Card.Text>
               <Card.Text className="text-center fs-4">Comments:</Card.Text>
               <Card.Text className="text-center fs-6">

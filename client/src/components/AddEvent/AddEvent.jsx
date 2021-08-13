@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
-import { useMutation } from "@apollo/react-hooks";
+import { from, useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
 import DateTimePicker from "react-datetime-picker";
 import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
@@ -12,12 +12,14 @@ const AddEventForm = ({ handleModalClose }) => {
     place: "",
     city: "",
     state: "",
+    category: ""
   });
   const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
   const [date, onChange] = useState(new Date());
+  // const [category, onChangeCat] = useState("");
 
   useEffect(() => {
     return () => saveMeeting(savedMeeting);
@@ -35,7 +37,7 @@ const AddEventForm = ({ handleModalClose }) => {
       await addMeeting({
         variables: { ...formState, date },
       });
-} catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };
@@ -48,7 +50,30 @@ const AddEventForm = ({ handleModalClose }) => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor="meetingType">Event Type: </Form.Label>
+        <Form.Label htmlFor="category">Category:</Form.Label>
+        <Form.Control 
+        as="select"
+        name="category"
+        onChange={handleInputChange}
+        value={formState.category}
+        >
+            <option>...</option>
+            <option value="Community">Community</option>
+            <option value="Concert">Concerts</option>
+            <option value="Conference">Conferences</option>
+            <option value="Expo">Expos</option>
+            <option value="Festival">Festivals</option>
+            <option value="Food">Food</option>
+            <option value="Other">Other</option>
+            <option value="Performing Arts">Performing Arts</option>
+            <option value="Private">Private</option>
+            <option value="Protest">Protests</option>
+            <option value="Sport">Sports</option>
+            <option value="Water">Water</option>
+    </Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="meetingType">Event Type:</Form.Label>
           <Form.Control
             type="text"
             placeholder="What kind of event?"
@@ -59,7 +84,7 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="place">Location: </Form.Label>
+          <Form.Label htmlFor="place">Location:</Form.Label>
           <Form.Control
             type="text"
             placeholder="What is the location?"
@@ -70,7 +95,7 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="city">City: </Form.Label>
+          <Form.Label htmlFor="city">City:</Form.Label>
           <Form.Control
             type="text"
             placeholder="What city is this in?"
@@ -81,7 +106,7 @@ const AddEventForm = ({ handleModalClose }) => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label htmlFor="state">State: </Form.Label>
+          <Form.Label htmlFor="state">State:</Form.Label>
           <Form.Control
             type="text"
             placeholder="What state is this in?"
@@ -91,12 +116,9 @@ const AddEventForm = ({ handleModalClose }) => {
             required
           />
         </Form.Group>
-        <Form.Label htmlFor="place">Date/Time: </Form.Label>
+        <Form.Label htmlFor="place">Date/Time:</Form.Label>
         <Form.Group>
-          <DateTimePicker
-          onChange={onChange}
-          value={date}
-          />
+          <DateTimePicker onChange={onChange} value={date} />
         </Form.Group>
         <Modal.Footer>
           <Button
@@ -105,7 +127,9 @@ const AddEventForm = ({ handleModalClose }) => {
                 formState.meetingType &&
                 formState.place &&
                 formState.city &&
-                formState.state 
+                formState.state &&
+                date &&
+                formState.category
               )
             }
             type="submit"

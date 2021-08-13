@@ -237,3 +237,7 @@ footer h4 {
   border-radius: 10px;
   opacity: .9;
 }
+
+.cursor {
+  cursor: pointer;
+}
