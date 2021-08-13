@@ -4,7 +4,6 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import { setContext } from "@apollo/client/link/context";
 import "./App.css";
-
 import Nav from "../Nav";
 import Home from "../../pages/Home";
 import LandingPage from "../../pages/LandingPage";

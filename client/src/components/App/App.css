@@ -95,27 +95,28 @@ span {
   margin-left: 16px;
 }
 
+
 /* Slider CSS */
 .slider {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .sliderImg {
-  width: 1000px;
-  height: 600px;
+  width: 850px;
+  height: 400px;
   border-radius: 10px;
 }
 
 .right-arrow {
   position: absolute;
   top: 50%;
-  right: 32px;
+  right: -100px;
   font-size: 3rem;
-  color: #000;
+  color: #69A583;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -124,9 +125,9 @@ span {
 .left-arrow {
   position: absolute;
   top: 50%;
-  left: 32px;
+  left: -100px;
   font-size: 3rem;
-  color: #000;
+  color: #69A583;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -152,10 +153,12 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: cornsilk;
   padding: 1vw;
   border-radius: 2vw;
+  background: rgba(135, 206, 235, .6);
+  /* opacity: .5; */
 }
+
 
 .landingPageInfo p {
   font-size: 1.5vw;
