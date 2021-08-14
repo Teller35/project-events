@@ -12,8 +12,7 @@ const AddReaction = ({ meetingId }) => {
   const [addReaction, { error }] = useMutation(ADD_REACTION);
 
   const handleInputChange = (event) => {
-    if (event.target.value.length <= 280) 
-    setReactionBody(event.target.value);
+    if (event.target.value.length <= 280) setReactionBody(event.target.value);
     setCharacterCount(event.target.value.length);
   };
 
@@ -42,9 +41,17 @@ const AddReaction = ({ meetingId }) => {
           </Alert>
 
           <Form.Group>
-            <Form.Label className={`${characterCount === 280 || error ? "text-error" : ""}`}>
-                What is on your mind <span>{characterCount}/280{error && <span>Something went wrong...</span>}</span>
-                </Form.Label>
+            <Form.Label
+              className={`${
+                characterCount === 280 || error ? "text-error" : ""
+              }`}
+            >
+              What is on your mind{" "}
+              <span>
+                {characterCount}/280
+                {error && <span>Something went wrong...</span>}
+              </span>
+            </Form.Label>
             <Form.Control
               as="textarea"
               placeholder="Leave comment here"

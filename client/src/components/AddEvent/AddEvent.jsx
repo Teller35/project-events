@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Form, Button, Alert, Modal } from "react-bootstrap";
-import { from, useMutation } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import { ADD_MEETING } from "../../utils/mutations";
 import DateTimePicker from "react-datetime-picker";
-import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
-import Auth from "../../utils/auth";
+// import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 
 const AddEventForm = ({ handleModalClose }) => {
   const [formState, setFormState] = useState({
@@ -12,18 +11,17 @@ const AddEventForm = ({ handleModalClose }) => {
     place: "",
     city: "",
     state: "",
-    category: ""
+    category: "",
   });
-  const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
+  // const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
   const [date, onChange] = useState(new Date());
-  // const [category, onChangeCat] = useState("");
 
-  useEffect(() => {
-    return () => saveMeeting(savedMeeting);
-  });
+  // useEffect(() => {
+  //   return () => saveMeeting(savedMeeting);
+  // });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -50,13 +48,13 @@ const AddEventForm = ({ handleModalClose }) => {
         </Alert>
 
         <Form.Group>
-        <Form.Label htmlFor="category">Category:</Form.Label>
-        <Form.Control 
-        as="select"
-        name="category"
-        onChange={handleInputChange}
-        value={formState.category}
-        >
+          <Form.Label htmlFor="category">Category:</Form.Label>
+          <Form.Control
+            as="select"
+            name="category"
+            onChange={handleInputChange}
+            value={formState.category}
+          >
             <option>...</option>
             <option value="Community">Community</option>
             <option value="Concert">Concerts</option>
@@ -70,7 +68,7 @@ const AddEventForm = ({ handleModalClose }) => {
             <option value="Protest">Protests</option>
             <option value="Sport">Sports</option>
             <option value="Water">Water</option>
-    </Form.Control>
+          </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="meetingType">Event Type:</Form.Label>

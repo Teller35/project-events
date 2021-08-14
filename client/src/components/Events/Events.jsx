@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Card, Row, Button, Col, Modal } from "react-bootstrap";
-import * as FaIcons from "react-icons/fa";
-import ReactionForm from "../AddReaction";
+import React from "react";
+import { Card, Row, Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Events.css";
-import AddReaction from "../AddReaction";
 
 const Events = ({ meetings, title }) => {
-  const [showForm, setShowForm] = useState(false);
-
   if (!meetings.length) {
     return <h2>No events yet...</h2>;
   }

@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import { setContext } from "@apollo/client/link/context";
 import "./App.css";
 import Nav from "../Nav";
 import Home from "../../pages/Home";

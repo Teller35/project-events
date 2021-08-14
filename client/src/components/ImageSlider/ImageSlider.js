@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 const ImageSlider = () => {
   const [sliderData] = useState([
@@ -35,18 +34,33 @@ const ImageSlider = () => {
       image: "Basketball",
       alt: "Basketball game",
     },
+    {
+      image: "Block party",
+      alt: "Block party",
+    },
+    {
+      image: "Flaming Gorge",
+      alt: "Flaming Gorge lake",
+    },
+    {
+      image: "Performing Arts",
+      alt: "Performing a play",
+    },
+    {
+      image: "Festival",
+      alt: "Renascence festival",
+    },
   ]);
 
   const [current, setCurrent] = useState(0);
   const length = sliderData.length;
-  const [intervalId, setIntervalId] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrent((current) => (current === length - 1 ? 0 : current + 1));
     }, 2500);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [length]);
 
   return (
     <section className="slider">
