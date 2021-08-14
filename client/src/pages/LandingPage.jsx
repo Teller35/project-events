@@ -13,10 +13,10 @@ const LandingPage = () => {
       <div className="landingPageInfo">
         <h1>What will be your next ADVENTURE?</h1>
         <p>
-          During the past year and a half you must have thought to your self on
-          at least once, "When will I be able to start my next adventure?"
+          During 2020/2021 you must have thought to yourself on
+          at least one occasion, "When will I be able to start my next adventure?"
         <br/>
-          E-V-E-N-T-S is ready to help you find yours or even make your next
+          E-V-E-N-T-S is ready to help you find yours, or even help make your next
           adventure if you feel extra adventurous! 😉
         </p>
         <ImageSlider />

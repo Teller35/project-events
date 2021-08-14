@@ -34,6 +34,22 @@ const ImageSlider = () => {
       image: "Basketball",
       alt: "Basketball game",
     },
+    {
+      image: "Block party",
+      alt: "Block party",
+    },
+    {
+      image: "Flaming Gorge",
+      alt: "Flaming Gorge lake",
+    },
+    {
+      image: "Performing Arts",
+      alt: "Performing a play",
+    },
+    {
+      image: "Festival",
+      alt: "Renascence festival",
+    },
   ]);
 
   const [current, setCurrent] = useState(0);
