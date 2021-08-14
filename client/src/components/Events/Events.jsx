@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Events.css";
 
 const Events = ({ meetings, title }) => {
-
   if (!meetings.length) {
     return <h2>No events yet...</h2>;
   }

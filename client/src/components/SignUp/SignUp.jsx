@@ -21,7 +21,7 @@ function SignUp(props) {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      // const token = mutationResponse.data.addUser.token;
+
       Auth.login(data.addUser.token);
     } catch (error) {
       console.log(error);

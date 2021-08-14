@@ -7,7 +7,6 @@ import Auth from "../utils/auth";
 const Home = () => {
   const { data } = useQuery(ALL_MEETINGS);
 
-
   const meetings = data?.allMeetings || [];
 
   const loggedIn = Auth.loggedIn();
@@ -16,8 +15,8 @@ const Home = () => {
     <div>
       {loggedIn && (
         <div>
-        <Events meetings={meetings} title="This is what is going on...." />
-      </div>
+          <Events meetings={meetings} title="This is what is going on...." />
+        </div>
       )}
     </div>
   );

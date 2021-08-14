@@ -40,7 +40,13 @@ const SingleMeeting = (props) => {
                 Category: {meeting.category}
               </Card.Subtitle>
               <Card.Text className="text-center fs-5">
-                Come join me at<text className="fw-bold"> {meeting.place} in {meeting.city}</text> for my<text className="fw-bold"> {meeting.meetingType}</text> event it will held at {meeting.date}.
+                Come join me at
+                <text className="fw-bold">
+                  {" "}
+                  {meeting.place} in {meeting.city}
+                </text>{" "}
+                for my<text className="fw-bold"> {meeting.meetingType}</text>{" "}
+                event it will held at {meeting.date}.
               </Card.Text>
               <Card.Text className="text-center fs-4">Comments:</Card.Text>
               <Card.Text className="text-center fs-6">

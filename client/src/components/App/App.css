@@ -44,7 +44,8 @@ header {
 .nav-menu.active {
   left: 0;
   transition: 350ms;
-  z-index:100; position: fixed;
+  z-index: 100;
+  position: fixed;
 }
 
 .nav-text {
@@ -74,7 +75,7 @@ header {
 }
 
 .nav-menu-items {
-  width: 100%
+  width: 100%;
 }
 
 .navbar-toggle {
@@ -95,7 +96,6 @@ span {
   margin-left: 16px;
 }
 
-
 /* Slider CSS */
 .slider {
   position: relative;
@@ -113,14 +113,14 @@ span {
 
 .slide {
   opacity: 0;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   transition-timing-function: ease-in-out;
   transition-delay: 0.3s;
 }
 
 .slide.active {
   opacity: 1;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   transition-timing-function: ease-in-out;
   transition-delay: 0.3s;
 }
@@ -136,9 +136,8 @@ span {
   justify-content: center;
   padding: 1vw;
   border-radius: 2vw;
-  background: rgba(135, 206, 235, .6);
+  background: rgba(135, 206, 235, 0.6);
 }
-
 
 .landingPageInfo p {
   font-size: 1.5vw;
@@ -210,15 +209,15 @@ footer h4 {
 }
 
 .MyRed:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .Border2 {
   box-shadow: 0 0 20px rgb(25, 25, 112);
   border: 6px solid rgb(135, 206, 235);
-  background-color: #69A583;
+  background-color: #69a583;
   border-radius: 10px;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .cursor {
@@ -231,7 +230,7 @@ footer h4 {
 }
 
 .donateContainer {
-  background: rgba(135, 206, 235, .6);
+  background: rgba(135, 206, 235, 0.6);
   border-radius: 1vw;
   text-align: center;
   max-width: 70%;
@@ -257,7 +256,7 @@ footer h4 {
 #donateBox {
   height: 600px;
   width: 100%;
-  max-height: none!important;
+  max-height: none !important;
 }
 
 .donorWallContainer {
@@ -265,10 +264,10 @@ footer h4 {
 }
 
 #donarWall {
-  background: rgba(135, 206, 235, .6);
+  background: rgba(135, 206, 235, 0.6);
   width: auto;
   max-width: 500px;
   min-width: 310px;
-  max-height: none!important;
+  max-height: none !important;
   border-radius: 1vw;
 }

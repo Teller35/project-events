@@ -11,7 +11,7 @@ const AddEventForm = ({ handleModalClose }) => {
     place: "",
     city: "",
     state: "",
-    category: ""
+    category: "",
   });
   // const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
@@ -48,13 +48,13 @@ const AddEventForm = ({ handleModalClose }) => {
         </Alert>
 
         <Form.Group>
-        <Form.Label htmlFor="category">Category:</Form.Label>
-        <Form.Control 
-        as="select"
-        name="category"
-        onChange={handleInputChange}
-        value={formState.category}
-        >
+          <Form.Label htmlFor="category">Category:</Form.Label>
+          <Form.Control
+            as="select"
+            name="category"
+            onChange={handleInputChange}
+            value={formState.category}
+          >
             <option>...</option>
             <option value="Community">Community</option>
             <option value="Concert">Concerts</option>
@@ -68,7 +68,7 @@ const AddEventForm = ({ handleModalClose }) => {
             <option value="Protest">Protests</option>
             <option value="Sport">Sports</option>
             <option value="Water">Water</option>
-    </Form.Control>
+          </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="meetingType">Event Type:</Form.Label>
