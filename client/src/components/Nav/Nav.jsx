@@ -77,7 +77,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-text">
-                <Link to="#">
+                <Link to="/support">
                   <IoIcons.IoMdPeople />
                   <span>Support</span>
                 </Link>
@@ -119,7 +119,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-text">
-                <Link to="#">
+                <Link to="/support">
                   <IoIcons.IoMdPeople />
                   <span>Support Page</span>
                 </Link>

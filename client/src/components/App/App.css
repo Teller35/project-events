@@ -271,3 +271,32 @@ footer h4 {
   max-height: none !important;
   border-radius: 1vw;
 }
+
+/* Support Style */
+.contCenter {
+  display: flex;
+  justify-content: center;
+  margin: 3vw;
+}
+
+.contSection {
+  background: rgba(135, 206, 235, 0.6);
+  box-shadow: 0 0 20px rgb(25, 25, 112);
+  border: 6px solid rgb(135, 206, 235);
+  width: 50%;
+  padding: 2vw;
+  border-radius: 1vw;
+}
+
+.contactStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactDiv {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+

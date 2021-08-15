@@ -40,11 +40,21 @@ const SingleMeeting = (props) => {
                 Category: {meeting.category}
               </Card.Subtitle>
               <Card.Text className="text-center fs-5">
+                <div>
                 Come join me at
-                <text className="fw-bold">
+                <div className="fw-bold">
                   {" "}
-                  {meeting.place} in {meeting.city}
-                </text>{" "}
+                  <a 
+                    href={`https://waze.com/ul?q=${meeting.place}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                  {meeting.place}
+                  </a>
+                  {" "}
+                   in {meeting.city}
+                </div>
+                </div>{" "}
                 for my<text className="fw-bold"> {meeting.meetingType}</text>{" "}
                 event it will held at {meeting.date}.
               </Card.Text>
