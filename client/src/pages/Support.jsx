@@ -34,53 +34,55 @@ export class Support extends Component {
     };
     render() {
         return (
-            <section className="contSection" >
-                <div className="contactComp">
-                <h1 className="projectSec">Do you need help?</h1>
-                <p>We are hear to help you with anything that you need to do to create your event! Just send us a quick message with you preferred email and we will reach out to you as soon as possible!</p>
-                <form
-                    onSubmit={this.handleSubmit.bind(this)}
-                    className="contact_form_class contactStyle"
-                    id="contact-form"
-                >
-                    <div className="contactDiv">
-                        <input 
-                            type="text"
-                            id="name"
-                            name="name"
-                            size="30"
-                            placeholder="What is your name?"
-                            value={this.state.name}
-                            onChange={this.handleChange.bind(this)}
-                        ></input>
+            <div className="contCenter">
+                <section className="contSection" >
+                    <div className="contactComp">
+                    <h1 className="projectSec">Do you need help?</h1>
+                    <p>We are hear to help you with anything that you need to do to create your event! Just send us a quick message with you preferred email and we will reach out to you as soon as possible!</p>
+                    <form
+                        onSubmit={this.handleSubmit.bind(this)}
+                        className="contact_form_class contactStyle"
+                        id="contact-form"
+                    >
+                        <div className="contactDiv">
+                            <input 
+                                type="text"
+                                id="name"
+                                name="name"
+                                size="30"
+                                placeholder="What is your name?"
+                                value={this.state.name}
+                                onChange={this.handleChange.bind(this)}
+                            ></input>
+                        </div>
+                        <div className="contactDiv">
+                            <input 
+                                type="text"
+                                id="email"
+                                name="email"
+                                size="30"
+                                placeholder="What is your email?"
+                                value={this.state.email}
+                                onChange={this.handleChange.bind(this)}
+                            ></input>
+                        </div>
+                        <div className="contactDiv">
+                            <textarea 
+                                type="text"
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="What can we help you with?"
+                                value={this.state.message}
+                                onChange={this.handleChange.bind(this)}
+                            ></textarea>
+                        </div>
+                    
+                        <button className="submitBtn" type="submit">Submit</button>
+                    </form>
                     </div>
-                    <div className="contactDiv">
-                        <input 
-                            type="text"
-                            id="email"
-                            name="email"
-                            size="30"
-                            placeholder="What is your email?"
-                            value={this.state.email}
-                            onChange={this.handleChange.bind(this)}
-                        ></input>
-                    </div>
-                    <div className="contactDiv">
-                        <textarea 
-                            type="text"
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="What can we help you with?"
-                            value={this.state.message}
-                            onChange={this.handleChange.bind(this)}
-                        ></textarea>
-                    </div>
-                  
-                    <button className="submitBtn" type="submit">Submit</button>
-                </form>
-                </div>
-            </section>
+                </section>
+            </div>
         )
     }
 }
