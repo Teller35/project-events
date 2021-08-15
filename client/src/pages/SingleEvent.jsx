@@ -40,6 +40,7 @@ const SingleMeeting = (props) => {
                 Category: {meeting.category}
               </Card.Subtitle>
               <Card.Text className="text-center fs-5">
+                <div>
                 Come join me at
                 <div className="fw-bold">
                   {" "}
@@ -52,6 +53,7 @@ const SingleMeeting = (props) => {
                   </a>
                   {" "}
                    in {meeting.city}
+                </div>
                 </div>{" "}
                 for my<text className="fw-bold"> {meeting.meetingType}</text>{" "}
                 event it will held at {meeting.date}.
