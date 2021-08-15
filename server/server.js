@@ -9,7 +9,7 @@ async function startApolloServer() {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware
+    context: authMiddleware,
   });
 
   await server.start();
@@ -26,7 +26,7 @@ async function startApolloServer() {
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  })
+  });
 
   db.once("open", () => {
     app.listen(PORT, () => {

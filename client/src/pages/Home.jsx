@@ -5,8 +5,7 @@ import Events from "../components/Events";
 import Auth from "../utils/auth";
 
 const Home = () => {
-  const { loading, data } = useQuery(ALL_MEETINGS);
-
+  const { data } = useQuery(ALL_MEETINGS);
 
   const meetings = data?.allMeetings || [];
 
@@ -16,8 +15,8 @@ const Home = () => {
     <div>
       {loggedIn && (
         <div>
-        <Events meetings={meetings} title="This is what is going on...." />
-      </div>
+          <Events meetings={meetings} title="This is what is going on...." />
+        </div>
       )}
     </div>
   );

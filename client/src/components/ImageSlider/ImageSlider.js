@@ -1,37 +1,84 @@
-import React, { useState } from 'react'
-import { SliderData } from './SliderData';
-import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from 'react-icons/fa';
+import React, { useEffect, useState } from "react";
 
-const ImageSlider = ({ slides }) => {
-    const [current, setCurrent] = useState(0)
-    const length = slides.length;
+const ImageSlider = () => {
+  const [sliderData] = useState([
+    {
+      name: "Heart Concert",
+      alt: "People putting up hearts at a concert",
+    },
+    {
+      image: "Friends",
+      alt: "Group of people in front of a lake",
+    },
+    {
+      image: "Aerobics",
+      alt: "Group of people working out",
+    },
+    {
+      image: "Cars",
+      alt: "Sports cars lined up at a car show",
+    },
+    {
+      image: "Bike Race",
+      alt: "Group of bikers",
+    },
+    {
+      image: "Small Concert",
+      alt: "Group of people at concert",
+    },
+    {
+      image: "Party",
+      alt: "Group of people at a party",
+    },
+    {
+      image: "Basketball",
+      alt: "Basketball game",
+    },
+    {
+      image: "Block party",
+      alt: "Block party",
+    },
+    {
+      image: "Flaming Gorge",
+      alt: "Flaming Gorge lake",
+    },
+    {
+      image: "Performing Arts",
+      alt: "Performing a play",
+    },
+    {
+      image: "Festival",
+      alt: "Renascence festival",
+    },
+  ]);
 
-    const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1)
-    }
+  const [current, setCurrent] = useState(0);
+  const length = sliderData.length;
 
-    const prevSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current -1)
-    }
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+    }, 6000);
+    return () => clearInterval(intervalId);
+  }, [length]);
 
-    if(!Array.isArray(slides) || slides.length <= 0) {
-        return null
-    }
-
-
-    return(
-        <section className="slider">
-            <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-            <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide}/>
-            {SliderData.map((slide, index) => {
-                return (
-                    <div className={index === current ? 'slide active': 'slide' } key={index}>
-                      {index === current && (<img src={slide.image} alt={slide.alt} className="sliderImg" />)}  
-                    </div>
-                )
-            })}
-        </section>
-    )
-}
+  return (
+    <section className="slider">
+      {sliderData.map((slide, i) => {
+        return (
+          <div className={i === current ? "slide active" : "slide"} key={i}>
+            {i === current && (
+              <img
+                src={require(`../../assets/small/carousel/${i}.jpg`).default}
+                alt={slide.alt}
+                className="sliderImg"
+              />
+            )}
+          </div>
+        );
+      })}
+    </section>
+  );
+};
 
 export default ImageSlider;

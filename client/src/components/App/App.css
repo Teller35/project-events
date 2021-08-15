@@ -7,52 +7,122 @@ body {
   min-height: 100vh;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 56%;
+}
+
+/* Nav CSS */
+.navBar {
+  background-color: #060b26;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: #f5f5f5;
+}
+
+.nav-menu {
+  background-color: #060b26;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+  z-index: 100;
+  position: fixed;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: fit-content;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 2vw;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #1a83ff;
+  color: #f5f5f5;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  color: #f5f5f5;
+  background-color: #060b26;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.navbar-toggle:hover {
+  color: #f5f5f5;
+}
+
+span {
+  margin-left: 16px;
+}
+
 /* Slider CSS */
 .slider {
   position: relative;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .sliderImg {
-  width: 1000px;
-  height: 600px;
+  width: 850px;
+  height: 400px;
   border-radius: 10px;
-}
-
-.right-arrow {
-  position: absolute;
-  top: 50%;
-  right: 32px;
-  font-size: 3rem;
-  color: #000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-}
-
-.left-arrow {
-  position: absolute;
-  top: 50%;
-  left: 32px;
-  font-size: 3rem;
-  color: #000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
 }
 
 .slide {
   opacity: 0;
-  transition-duration: 1s ease;
+  transition-duration: 0.7s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.3s;
 }
 
 .slide.active {
   opacity: 1;
-  transition-duration: 1s;
-  transform: scale(1.08);
+  transition-duration: 0.7s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.3s;
 }
 
 /* login/signup form Styling */
@@ -64,9 +134,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: cornsilk;
   padding: 1vw;
   border-radius: 2vw;
+  background: rgba(135, 206, 235, 0.6);
 }
 
 .landingPageInfo p {
@@ -139,13 +209,94 @@ footer h4 {
 }
 
 .MyRed:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .Border2 {
   box-shadow: 0 0 20px rgb(25, 25, 112);
   border: 6px solid rgb(135, 206, 235);
-  background-color: #69A583;
+  background-color: #69a583;
   border-radius: 10px;
-  opacity: .9;
+  opacity: 0.9;
 }
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Donation Page */
+.donateMargin {
+  padding: 5vw;
+}
+
+.donateContainer {
+  background: rgba(135, 206, 235, 0.6);
+  border-radius: 1vw;
+  text-align: center;
+  max-width: 70%;
+  max-height: fit-content;
+}
+
+.donateSection {
+  padding: 3vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.donateForm {
+  margin-left: 33vh;
+  margin-top: 5vh;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+#donateBox {
+  height: 600px;
+  width: 100%;
+  max-height: none !important;
+}
+
+.donorWallContainer {
+  padding-left: 3vw;
+}
+
+#donarWall {
+  background: rgba(135, 206, 235, 0.6);
+  width: auto;
+  max-width: 500px;
+  min-width: 310px;
+  max-height: none !important;
+  border-radius: 1vw;
+}
+
+/* Support Style */
+.contCenter {
+  display: flex;
+  justify-content: center;
+  margin: 3vw;
+}
+
+.contSection {
+  background: rgba(135, 206, 235, 0.6);
+  box-shadow: 0 0 20px rgb(25, 25, 112);
+  border: 6px solid rgb(135, 206, 235);
+  width: 50%;
+  padding: 2vw;
+  border-radius: 1vw;
+}
+
+.contactStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactDiv {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+

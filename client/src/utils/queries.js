@@ -17,6 +17,7 @@ export const GET_ME = gql`
         place
         city
         state
+        category
         meetingType
         reactionsCount
         reactions {
@@ -50,6 +51,7 @@ export const GET_ALL = gql`
         place
         city
         state
+        category
         meetingType
         createdAt
         reactionsCount
@@ -74,6 +76,7 @@ export const ALL_MEETINGS = gql`
       place
       city
       state
+      category
       reactionsCount
       reactions {
         reactionBody
@@ -94,6 +97,7 @@ export const MEETINGS = gql`
       place
       city
       state
+      category
       createdAt
       reactionsCount
     }
@@ -109,6 +113,29 @@ export const SINGLE_MEETING = gql`
       place
       city
       state
+      category
+      createdAt
+      reactionsCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const SEARCH_CATEGORY = gql`
+  query SEARCH_CATEGORY($category: String!) {
+    searchCategory(category: $category) {
+      date
+      meetingType
+      username
+      place
+      city
+      state
+      category
       createdAt
       reactionsCount
       reactions {

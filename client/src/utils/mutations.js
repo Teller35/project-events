@@ -37,6 +37,7 @@ export const ADD_MEETING = gql`
     $city: String!
     $state: String!
     $date: String!
+    $category: String!
   ) {
     addMeeting(
       place: $place
@@ -44,6 +45,7 @@ export const ADD_MEETING = gql`
       state: $state
       meetingType: $meetingType
       date: $date
+      category: $category
     ) {
       _id
       username
@@ -53,6 +55,7 @@ export const ADD_MEETING = gql`
       meetingType
       createdAt
       date
+      category
     }
   }
 `;

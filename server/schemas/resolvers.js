@@ -22,17 +22,18 @@ const resolvers = {
     },
     meetings: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return User.find(params)
-      .populate("meetings")
-      .populate("reactions")
+      return User.find(params).populate("meetings").populate("reactions");
     },
     allMeetings: async () => {
-      return await Meeting.find()
-      .populate("reactions")
+      return await Meeting.find().populate("reactions");
     },
     singleMeeting: async (parent, { _id }) => {
       return Meeting.findOne({ _id });
-    }
+    },
+    searchCategory: async (parent, { category }) => {
+      const params = category ? { category } : {};
+      return Meeting.find(params).populate("meetings").populate("reactions");
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -92,7 +93,7 @@ const resolvers = {
     // updateMeeting: async (parent, { _id, args }, context) => {
     //   if (context.user) {
     //     return await Meeting.findByIdAndUpdate(_id, args, {
-    //       new: true 
+    //       new: true
     //     })
     //   }
     //   throw new AuthenticationError("Need to be logged in!");

@@ -7,11 +7,11 @@ const meetingSchema = new Schema(
     date: {
       type: String,
       required: true,
-      get: date => dateFormat(date)
+      get: (date) => dateFormat(date),
     },
     username: {
       type: String,
-      required: true
+      required: true,
     },
     place: {
       type: String,
@@ -26,6 +26,10 @@ const meetingSchema = new Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+      required: true,
+    },
     meetingType: {
       type: String,
       required: true,
@@ -34,7 +38,7 @@ const meetingSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+      get: (timestamp) => dateFormat(timestamp),
     },
     reactions: [reactionSchema],
   },
