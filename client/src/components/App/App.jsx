@@ -12,7 +12,7 @@ import LandingPage from "../../pages/LandingPage";
 import SingleMeeting from "../../pages/SingleEvent";
 import SearchMeetings from "../../pages/SearchEvent";
 import Footer from "../Footer/Footer";
-import UpdateUserInfo from "../UpateUserInfo/UpdateUserInfo";
+
 
 
 
@@ -42,7 +42,6 @@ function App() {
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/meeting/:id" component={SingleMeeting} />
             <Route exact path="/search" component={SearchMeetings} />
-            <Route exact path="/update" component={UpdateUserInfo} />
           </Switch>
           <Footer />
         </div>
