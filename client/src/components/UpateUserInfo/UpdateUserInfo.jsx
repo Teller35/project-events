@@ -3,7 +3,7 @@ import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_USER } from "../../utils/mutations";
 
-const UpdateUserInfoForm = ({ handleModalClose }) => {
+const UpdateUserInfo = ({ handleModalClose }) => {
   const [formState, setFormState] = useState({
     username: "",
     firstName: "",
@@ -93,4 +93,4 @@ const UpdateUserInfoForm = ({ handleModalClose }) => {
   );
 };
 
-export default UpdateUserInfoForm;
+export default UpdateUserInfo;
