@@ -3,7 +3,7 @@ import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_USER } from "../../utils/mutations";
 
-const UpdateUserInfoForm = ({ handleModalClose }) => {
+const UpdateUserInfo = ({ handleModalClose }) => {
   const [formState, setFormState] = useState({
     username: "",
     firstName: "",
@@ -36,7 +36,7 @@ const UpdateUserInfoForm = ({ handleModalClose }) => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => getShowAlert(false)} show={showAlert}>
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>
           Something went wrong!
         </Alert>
 
@@ -93,4 +93,4 @@ const UpdateUserInfoForm = ({ handleModalClose }) => {
   );
 };
 
-export default UpdateUserInfoForm;
+export default UpdateUserInfo;
