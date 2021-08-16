@@ -1,9 +1,9 @@
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { ALL_MEETINGS, GET_ME } from "../utils/queries";
+import { GET_ME } from "../utils/queries";
 import UpdateUserInfo from "../components/UpdateUserInfo";
-// import MyEvents from '../components/MyEvents';
+import MyEvents from "../components/MyEvents";
 import FriendList from '../components/FriendList';
 
 
@@ -16,12 +16,12 @@ import Auth from '../utils/auth';
 
 const Profile = props => {
   const { username: userParam } = useParams();
-
+  
   const [addFriend] = useMutation(ADD_FRIEND);
   const { loading, data } = useQuery(userParam ? GET_ME : GET_ME, {
     variables: { username: userParam }
   });
-
+  const myMeetings = data?.meetings || [];
   const user = data?.me || data?.user || {};
 
   // redirect to personal profile page if username is yours
@@ -55,6 +55,7 @@ const Profile = props => {
   };
 
   return (
+    <div>
       <div>
           <div className="updateUserInfo">
             <UpdateUserInfo> 
@@ -66,7 +67,7 @@ const Profile = props => {
     
     
 
-    /* <div>
+   
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -82,13 +83,16 @@ const Profile = props => {
     
 
         <div className="col-12 col-lg-3 mb-3">
-          <FriendList>
+          <FriendList
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
-            </FriendList>
+            />
         </div>
-    <>   */
+        <div className="userevents">{!userParam && <MyEvents myMeetings={myMeetings}/>
+        }
+        // </div>
+       </div>
   )
 };
 

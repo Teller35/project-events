@@ -36,7 +36,7 @@ const UpdateUserInfo = ({ handleModalClose }) => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => getShowAlert(false)} show={showAlert}>
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>
           Something went wrong!
         </Alert>
 
