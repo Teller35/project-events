@@ -30,7 +30,7 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleFormSubmit = async (event) => {
     // event.preventDefault();
-    // console.log(formState, date)
+    console.log(formState, date)
     try {
       await addMeeting({
         variables: { ...formState, date },
