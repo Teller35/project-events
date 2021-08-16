@@ -2,7 +2,7 @@ import React from "react";
 import Teller from "../../assets/small/teller.png";
 import Amber from "../../assets/small/amber.png";
 import David from "../../assets/small/david.png";
-import Brady from "../../assets/small/david.png";
+import Brady from "../../assets/small/brady.png";
 
 const Footer = () => {
   return (
