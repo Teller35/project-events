@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { ALL_MEETINGS, GET_ME } from "../utils/queries";
-// import UpdateUserInfo from '../components/UpateUserInfo';
+import UpdateUserInfo from "../components/UpdateUserInfo";
 // import MyEvents from '../components/MyEvents';
 import FriendList from '../components/FriendList';
 
@@ -10,6 +10,7 @@ import FriendList from '../components/FriendList';
 
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
+
 
 
 
@@ -54,7 +55,18 @@ const Profile = props => {
   };
 
   return (
-    <div>
+      <div>
+          <div className="updateUserInfo">
+            <UpdateUserInfo> 
+            <p>Click below to update User Information</p>
+            </UpdateUserInfo> 
+          </div>  
+      </div>
+    
+    
+    
+
+    /* <div>
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -70,14 +82,14 @@ const Profile = props => {
     
 
         <div className="col-12 col-lg-3 mb-3">
-          <FriendList
+          <FriendList>
             username={user.username}
             friendCount={user.friendCount}
             friends={user.friends}
-          />
+            </FriendList>
         </div>
-      </div>
-  );
+    <>   */
+  )
 };
 
 export default Profile;
