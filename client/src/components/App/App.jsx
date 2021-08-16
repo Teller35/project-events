@@ -6,6 +6,7 @@ import "./App.css";
 import Nav from "../Nav";
 import Home from "../../pages/Home";
 import Donate from "../../pages/Donate";
+import Profile from "../../pages/Profile";
 import Support from "../../pages/Support";
 import LandingPage from "../../pages/LandingPage";
 import SingleMeeting from "../../pages/SingleEvent";
@@ -36,6 +37,7 @@ function App() {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/donate" component={Donate} />
             <Route exact path="/support" component={Support} />
+            <Route exact path="/profile" component={Profile}></Route>
             <Route exact path="/meeting/:id" component={SingleMeeting} />
             <Route exact path="/search" component={SearchMeetings} />
           </Switch>
