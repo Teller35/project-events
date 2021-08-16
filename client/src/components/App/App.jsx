@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import "./App.css";
-import Nav from "../src/components/Nav/Nav";
-import Home from "../src/pages/Home";
-import Donate from "../src/pages/Donate";
-import Support from "../src/pages/Support";
-import LandingPage from "../src/pages/LandingPage";
-import SingleMeeting from "../src/pages/SingleEvent";
-import SearchMeetings from "../src/pages/SearchEvent";
-import Footer from "../src/components/Footer/Footer";
+import Nav from "../Nav";
+import Home from "../../pages/Home";
+import Donate from "../../pages/Donate";
+import Support from "../../pages/Support";
+import LandingPage from "../../pages/LandingPage";
+import SingleMeeting from "../../pages/SingleEvent";
+import SearchMeetings from "../../pages/SearchEvent";
+import Footer from "../Footer/Footer";
 //import Profile from "../../pages/Profile"
 
 const client = new ApolloClient({
