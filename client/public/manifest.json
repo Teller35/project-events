@@ -1,9 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "EVENTS App",
+  "name": "EVENTS Mobile App",
+  "description": "This is an app that will allow a user to create and search for an event.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "event_icon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },

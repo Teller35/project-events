@@ -256,6 +256,7 @@ footer h4 {
 #donateBox {
   height: 600px;
   width: 100%;
+  min-width: 300px;
   max-height: none !important;
 }
 
