@@ -36,9 +36,11 @@ const AddEventForm = ({ handleModalClose }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState, date)
+    const formData = { ...formState, date };
+    console.log(formData);
     try {
       await addMeeting({
-        variables: { ...formState, date },
+        variables: formData,
       });
     } catch (error) {
       console.log(error);
