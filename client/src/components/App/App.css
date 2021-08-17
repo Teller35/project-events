@@ -95,6 +95,11 @@ footer {
   padding-left: 3vw;
   padding-right: 3vw;
   background-color: cornsilk;
+  position: -webkit-sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 footer h4 {
@@ -104,7 +109,7 @@ footer h4 {
 }
 
 .footerArea {
-  display: flex;
+  display: flex;  
   justify-content: center;
   padding-top: 2vw;
   padding-bottom: 2vw;
