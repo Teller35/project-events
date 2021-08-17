@@ -125,7 +125,7 @@ const AddEventForm = ({ handleModalClose }) => {
         <Form.Group>
           <DateTimePicker onChange={(e) => {
             console.log(e);
-            setDate(e);
+            setDate(e.toLocaleString());
             }} value={date} />
         </Form.Group>
         <Modal.Footer>
