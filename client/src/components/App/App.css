@@ -172,7 +172,12 @@ footer {
   margin-bottom: 0vh;
   padding-left: 3vw;
   padding-right: 3vw;
-  background-color: rgba(135, 206, 235, 0.6);
+background-color: rgba(135, 206, 235, 0.6);
+  position: -webkit-sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 footer h4 {
@@ -182,7 +187,7 @@ footer h4 {
 }
 
 .footerArea {
-  display: flex;
+  display: flex;  
   justify-content: center;
   padding-top: 2vw;
   padding-bottom: 2vw;
@@ -348,4 +353,12 @@ footer h4 {
     padding-right: 3vw;
     background-color: rgba(135, 206, 235, 0.6);
   }
+}
+.MySecondButton {
+  background-color: #1A83FF;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  border-radius: 3vw;
+  padding: 7px;
 }
