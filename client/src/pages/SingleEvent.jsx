@@ -62,9 +62,9 @@ const SingleMeeting = (props) => {
               <Card.Text className="text-center fs-6">
                 <Reactions reactions={meeting.reactions} />
               </Card.Text>
-              <Button onClick={() => setShowForm(true)}>
+              <button className="MySecondButton" onClick={() => setShowForm(true)}>
                 Leave a comment here
-              </Button>
+              </button>
               <Modal
                 show={showForm}
                 onHide={() => setShowForm(false)}

@@ -121,7 +121,8 @@ const AddEventForm = ({ handleModalClose }) => {
           <DateTimePicker onChange={setDate} value={date} />
         </Form.Group>
         <Modal.Footer>
-          <Button
+          <button
+          className="MySecondButton"
             disabled={
               !(
                 formState.meetingType &&
@@ -136,7 +137,7 @@ const AddEventForm = ({ handleModalClose }) => {
             onClick={handleModalClose}
           >
             Schedule
-          </Button>
+          </button>
         </Modal.Footer>
       </Form>
     </>

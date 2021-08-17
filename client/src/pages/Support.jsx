@@ -78,7 +78,7 @@ export class Support extends Component {
                             ></textarea>
                         </div>
                     
-                        <button className="submitBtn" type="submit">Submit</button>
+                        <button className="MySecondButton" type="submit">Submit</button>
                     </form>
                     </div>
                 </section>
