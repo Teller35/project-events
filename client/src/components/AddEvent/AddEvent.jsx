@@ -17,7 +17,7 @@ const AddEventForm = ({ handleModalClose }) => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
-  const [date, setDate] = useState(new Date());
+  const [date, onChange] = useState(new Date());
 
   // useEffect(() => {
   //   return () => saveMeeting(savedMeeting);
@@ -25,7 +25,7 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setDate(date)
+    // setDate(date)
     setFormState({ ...formState, [name]: value });
   };
 
@@ -117,7 +117,7 @@ const AddEventForm = ({ handleModalClose }) => {
         </Form.Group>
         <Form.Label htmlFor="place">Date/Time:</Form.Label>
         <Form.Group>
-          <DateTimePicker onChange={handleInputChange} value={date} />
+          <DateTimePicker onChange={onChange} value={date} />
         </Form.Group>
         <Modal.Footer>
           <Button
