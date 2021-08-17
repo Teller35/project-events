@@ -49,7 +49,6 @@ const resolvers = {
     },
     addMeeting: async (parent, args, context) => {
       if (context.user) {
-        console.log('args: ', args);
         const meeting = await Meeting.create({
           ...args,
           username: context.user.username,
