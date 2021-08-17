@@ -25,7 +25,7 @@ const resolvers = {
       return User.find(params).populate("meetings").populate("reactions");
     },
     allMeetings: async () => {
-      return await Meeting.find().populate("reactions");
+      return await Meeting.find().populate("reactions").sort({ createdAt: -1 });
     },
     singleMeeting: async (parent, { _id }) => {
       return Meeting.findOne({ _id });

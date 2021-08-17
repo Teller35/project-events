@@ -6,18 +6,22 @@ import DateTimePicker from "react-datetime-picker";
 // import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 
 const AddEventForm = ({ handleModalClose }) => {
+  let newDate = new Date();
+  console.log({newDate})
+  let [date, setDate] = useState(newDate);
+  console.log(date);
   const [formState, setFormState] = useState({
     meetingType: "",
     place: "",
     city: "",
     state: "",
     category: "",
+    // pickedDate: date
   });
   // const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
-  const [date, onChange] = useState(new Date());
 
   // useEffect(() => {
   //   return () => saveMeeting(savedMeeting);
@@ -25,12 +29,13 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    // setDate(date)
     setFormState({ ...formState, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
-    // event.preventDefault();
-    // console.log(formState, date)
+    event.preventDefault();
+    console.log(formState, date)
     try {
       await addMeeting({
         variables: { ...formState, date },
@@ -116,10 +121,14 @@ const AddEventForm = ({ handleModalClose }) => {
         </Form.Group>
         <Form.Label htmlFor="place">Date/Time:</Form.Label>
         <Form.Group>
-          <DateTimePicker onChange={onChange} value={date} />
+          <DateTimePicker onChange={(e) => {
+            console.log(e);
+            setDate(e);
+            }} value={date} />
         </Form.Group>
         <Modal.Footer>
-          <Button
+          <button
+          className="MySecondButton"
             disabled={
               !(
                 formState.meetingType &&
@@ -134,7 +143,7 @@ const AddEventForm = ({ handleModalClose }) => {
             onClick={handleModalClose}
           >
             Schedule
-          </Button>
+          </button>
         </Modal.Footer>
       </Form>
     </>

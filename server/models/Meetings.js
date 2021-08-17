@@ -1,13 +1,14 @@
 const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
 const dateFormat = require("../utils/dateFormat");
+const timeFormat = require("../utils/timeFormat");
 
 const meetingSchema = new Schema(
   {
     date: {
       type: String,
       required: true,
-      get: (date) => dateFormat(date),
+      get: (date) => timeFormat(date),
     },
     username: {
       type: String,
