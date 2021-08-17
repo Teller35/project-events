@@ -20,6 +20,12 @@ const resolvers = {
         .populate("friends")
         .populate("meetings");
     },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+      .select("-__v -password")
+      .populate("meetings")
+      .populate("friends")
+    },
     meetings: async (parent, { username }) => {
       const params = username ? { username } : {};
       return User.find(params).populate("meetings").populate("reactions");
@@ -43,7 +49,6 @@ const resolvers = {
     },
     addMeeting: async (parent, args, context) => {
       if (context.user) {
-        console.log('args: ', args);
         const meeting = await Meeting.create({
           ...args,
           username: context.user.username,
@@ -74,7 +79,7 @@ const resolvers = {
     },
     addFriend: async (parent, { friendId }, context) => {
       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { friends: friendId } },
           { new: true }

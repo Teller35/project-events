@@ -66,6 +66,37 @@ export const GET_ALL = gql`
   }
 `;
 
+export const SINGLE_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      friendsCount
+      meetings {
+        _id
+        createdAt
+        date
+        place
+        city
+        state
+        category
+        meetingType
+        reactionsCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const ALL_MEETINGS = gql`
   {
     allMeetings {
@@ -142,6 +173,20 @@ export const SEARCH_CATEGORY = gql`
         _id
         reactionBody
         createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_FRIEND = gql`
+  mutation ADD_FRIEND($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friendsCount
+      friends {
+        _id
         username
       }
     }

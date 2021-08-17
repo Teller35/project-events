@@ -2,14 +2,14 @@ import React from "react";
 import { Card, Row, Button, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-
-const MyEvents = ({ myMeetings }) => {
+const MyEvents = ({ myMeetings, user }) => {
   if (!myMeetings.length) {
     return <h2>No events yet...</h2>;
   }
+
   return (
     <div className="m-2 border border-5 rounded">
-      <h3>Your Events</h3>
+      <h3>{user.username} Events</h3>
       <Row xs={1} md={2} lg={3}>
         {myMeetings &&
           myMeetings.map((meeting) => (
@@ -43,7 +43,7 @@ const MyEvents = ({ myMeetings }) => {
                     event it will held at {meeting.date}.
                   </Card.Text>
                   <Link to={`/meeting/${meeting._id}`}>
-                    <Button>Check it out here</Button>
+                    <button className="MySecondButton">Check it out here</button>
                   </Link>
                 </Card.Body>
               </Card>
