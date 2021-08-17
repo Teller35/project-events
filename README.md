@@ -6,7 +6,7 @@
 
 #### _Need to get the word out about your event look no further. You can post events and let people know about it. Link up with your friends to plan and so much more. Sign-up and check it out yourself. This project was built using several technologies first and for most MongooseExpressReactNode SinglePageApplication or better known as MERN SPA, along with CSS, JsonWebToken, Bootstrap, Emailjs-com, and bcrypt_
 
-- _<a href="https://github.com/teller35/project-events" target="_blank">View Project on GitHub</a>_
+- _[View Project on GitHub](https://github.com/teller35/project-events)_
 - _[Visit Live Site](https://e-v-e-n-t-s.herokuapp.com/)_
 - _[Presentation](https://docs.google.com/presentation/d/1dLo5CP-Z91Y-qnYMoQDcR5tztTPJFEvc2M-lkU6BLPk/edit?usp=sharing)_
 
