@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { SINGLE_MEETING } from "../utils/queries";
 import { Col, Card, Button, Modal } from "react-bootstrap";
@@ -8,6 +8,7 @@ import Reactions from "../components/Reactions";
 import Auth from "../utils/auth";
 
 const SingleMeeting = (props) => {
+  const history = useHistory();
   const [showForm, setShowForm] = useState(false);
   const loggedIn = Auth.loggedIn();
 
@@ -27,9 +28,7 @@ const SingleMeeting = (props) => {
         <Col className="p-2">
           <Card style={{ width: "auto" }} className="Border2 m-auto">
             <Card.Body className="Border2">
-              <Link to="/home">
-                <span className="MyRed">&larr; Back to Events</span>
-              </Link>
+                <button onClick={() => history.goBack()} className="MyRed">&larr; Back</button>
               <Card.Title className="text-center fs-1">
                 {meeting.meetingType}
               </Card.Title>

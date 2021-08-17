@@ -158,6 +158,7 @@ span {
   border-radius: 3vw;
   padding: 7px;
 }
+
 .MySecondButton {
   background-color: #1a83ff;
   color: white;
@@ -165,6 +166,7 @@ span {
   font-weight: bold;
   border-radius: 3vw;
   padding: 7px;
+  text-decoration: none;
 }
 
 /* Footer Styling */
@@ -217,12 +219,13 @@ footer h4 {
 
 .MyRed {
   color: red;
-  font-size: x-large;
-  opacity: 0.6;
+  font-size: large;
+  background-color: #1a83ff;
+  border-radius: 1vw;
 }
 
 .MyRed:hover {
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .Border2 {
@@ -353,13 +356,4 @@ footer h4 {
     padding-right: 3vw;
     background-color: rgba(135, 206, 235, 0.6);
   }
-}
-.MySecondButton {
-  background-color: #1A83FF;
-  color: white;
-  font-size: 1vw;
-  font-weight: bold;
-  border-radius: 3vw;
-  padding: 7px;
-  text-decoration: none;
 }
