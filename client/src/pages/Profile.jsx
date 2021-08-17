@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { GET_ME } from "../utils/queries";
+import { GET_ME, SINGLE_USER } from "../utils/queries";
 import UpdateUserInfo from "../components/UpdateUserInfo";
 import MyEvents from "../components/MyEvents";
 import FriendList from '../components/FriendList';
-
-
-
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -19,7 +16,7 @@ const Profile = props => {
   const { username: userParam } = useParams();
   
   const [addFriend] = useMutation(ADD_FRIEND);
-  const { loading, data } = useQuery(userParam ? GET_ME : GET_ME, {
+  const { loading, data } = useQuery(userParam ? SINGLE_USER : GET_ME, {
     variables: { username: userParam }
   });
   const [show, setShow] = useState(false);

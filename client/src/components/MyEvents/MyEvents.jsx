@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 
 const MyEvents = ({ myMeetings }) => {
   if (!myMeetings.length) {
-    return <h2>No events yet...</h2>;
+    return <h2>No events yet...</h2>
   }
+  
   return (
     <div className="m-2 border border-5 rounded">
       <h3>Your Events</h3>

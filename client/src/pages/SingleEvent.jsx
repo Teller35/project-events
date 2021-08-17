@@ -35,7 +35,7 @@ const SingleMeeting = (props) => {
               </Card.Title>
               <Card.Subtitle className="text-center fs-4">
               Brought to you by: {' '}    
-              <Link to ="/profile">
+              <Link to ={`/profile/${meeting.username}`}>
                 {meeting.username}
               </Link>
               </Card.Subtitle>

@@ -46,6 +46,7 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
+    user(username: String!): User
     meetings(username: String!): [Meeting]
     singleMeeting(_id: ID!): Meeting
     allMeetings: [Meeting]

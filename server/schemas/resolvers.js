@@ -20,6 +20,12 @@ const resolvers = {
         .populate("friends")
         .populate("meetings");
     },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+      .select("-__v -password")
+      .populate("meetings")
+      .populate("friends")
+    },
     meetings: async (parent, { username }) => {
       const params = username ? { username } : {};
       return User.find(params).populate("meetings").populate("reactions");
