@@ -34,7 +34,7 @@ const AddEventForm = ({ handleModalClose }) => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(formState, date)
     const formData = { ...formState, date: date.toLocaleString() };
     console.log(formData);
