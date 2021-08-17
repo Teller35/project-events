@@ -48,10 +48,9 @@ const Profile = (props) => {
     );
   }
 
-
   return (
     <div className="flex-row mb-3">
-      <h2>Viewing {userParam ? `${user.username}'s` : "your"} profile.</h2>
+      <h2>Welcome to {userParam ? `${user.username}'s` : "your"} profile.</h2>
       <div>
         <div>
           {!userParam && (
@@ -93,8 +92,7 @@ const Profile = (props) => {
         />
       </div>
       <div className="userevents">
-        {!userParam && <MyEvents myMeetings={user.meetings} />}
-        //{" "}
+        {userParam && <MyEvents user={user} myMeetings={user.meetings} />}{" "}
       </div>
     </div>
   );
