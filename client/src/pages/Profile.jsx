@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_ME } from "../utils/queries";
@@ -21,7 +22,7 @@ const Profile = props => {
   const { loading, data } = useQuery(userParam ? GET_ME : GET_ME, {
     variables: { username: userParam }
   });
-  const myMeetings = data?.meetings || [];
+  const [show, setShow] = useState(false);
   const user = data?.me || data?.user || {};
 
   // redirect to personal profile page if username is yours
@@ -55,25 +56,34 @@ const Profile = props => {
   };
 
   return (
-    <div>
-      <div>
-          <div className="updateUserInfo">
-            <UpdateUserInfo> 
-            <p>Click below to update User Information</p>
-            </UpdateUserInfo> 
-          </div>  
-      </div>
-    
-    
-    
 
-   
-      <div className="flex-row mb-3">
+
+    <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
-
-        {userParam && (
+    <div>
+      <div>
+          <div className="updateUserInfo">
+            
+            <h3 onClick={() => setShow(true)} >Click here to update User Information</h3>
+          <Modal
+          show={show}
+          onHide={() => setShow(false)}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Update User Info</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <UpdateUserInfo handleModalClose={() => setShow(false)} user={user}/>
+          </Modal.Body>
+        </Modal>
+        
+          </div>  
+      </div>
+          {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
             Add Friend
           </button>
@@ -89,7 +99,7 @@ const Profile = props => {
             friends={user.friends}
             />
         </div>
-        <div className="userevents">{!userParam && <MyEvents myMeetings={myMeetings}/>
+        <div className="userevents">{!userParam && <MyEvents myMeetings={user.meetings}/>
         }
         // </div>
        </div>

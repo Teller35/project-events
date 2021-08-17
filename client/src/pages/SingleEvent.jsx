@@ -34,7 +34,10 @@ const SingleMeeting = (props) => {
                 {meeting.meetingType}
               </Card.Title>
               <Card.Subtitle className="text-center fs-4">
-                Brought to you by: {meeting.username}
+              Brought to you by: {' '}    
+              <Link to ="/profile">
+                {meeting.username}
+              </Link>
               </Card.Subtitle>
               <Card.Subtitle className="text-center fs-4">
                 Category: {meeting.category}
