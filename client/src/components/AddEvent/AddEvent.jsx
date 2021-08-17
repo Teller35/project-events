@@ -6,17 +6,15 @@ import DateTimePicker from "react-datetime-picker";
 // import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 
 const AddEventForm = ({ handleModalClose }) => {
-  let newDate = new Date();
-  console.log({newDate})
-  let [date, setDate] = useState(newDate);
-  console.log(date);
+  
+  let [date, setDate] = useState(new Date());
+  
   const [formState, setFormState] = useState({
     meetingType: "",
     place: "",
     city: "",
     state: "",
     category: "",
-    // pickedDate: date
   });
   // const [savedMeeting, setSavedMeeting] = useState(getSavedMeeting);
   const [validated] = useState(false);
@@ -29,16 +27,16 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    // setDate(date)
     setFormState({ ...formState, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState, date)
+    // event.preventDefault();
+    const formData = { ...formState, date: date.toLocaleString() };
+    // console.log(formData);
     try {
       await addMeeting({
-        variables: { ...formState, date },
+        variables: formData,
       });
     } catch (error) {
       console.log(error);
