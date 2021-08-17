@@ -36,11 +36,12 @@ module.exports = (date, { monthLength = "short" } = {}) => {
   
     // constantan variables to retrieve date and time
     const dateObj = new Date(date);
+    console.log('dateObj: ', dateObj);
     const formMonth = months[dateObj.getMonth()];
     const formDate = dateObj.getDate();
     const formYear = dateObj.getFullYear().toString().substr(-2);
     const formMinute = ("0" + dateObj.getMinutes()).substr(-2);
-  
+    console.log(formMinute);
     // turns the hour into a 12hr format and sets midnight to 12
     let hours = dateObj.getHours();
   
@@ -63,7 +64,7 @@ module.exports = (date, { monthLength = "short" } = {}) => {
   
     // variable to make the new timestamp and in the order that I selected
     const formattedDateStamp = `${hours}:${formMinute} ${portionOfDay} on ${formMonth}/${formDate}/${formYear}`;
-  
+    console.log(formattedDateStamp);
     //   returning the new timestamp
     return formattedDateStamp;
   };

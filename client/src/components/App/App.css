@@ -146,25 +146,33 @@ span {
 .loginArea {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 4vw;
-  width: 50%;
+  justify-content: space-evenly;
+  padding: 1vw;
 }
 
-.loginArea button {
-  background-color: blue;
+.MyButton {
+  background-color: #1a83ff;
   color: white;
   font-size: 2vw;
   font-weight: bold;
-  border-radius: 1vw;
+  border-radius: 3vw;
+  padding: 7px;
+}
+.MySecondButton {
+  background-color: #1a83ff;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  border-radius: 3vw;
   padding: 7px;
 }
 
 /* Footer Styling */
 footer {
+  margin-bottom: 0vh;
   padding-left: 3vw;
   padding-right: 3vw;
-  background-color: cornsilk;
+background-color: rgba(135, 206, 235, 0.6);
   position: -webkit-sticky;
   left: 0;
   bottom: 0;
@@ -304,6 +312,47 @@ footer h4 {
   padding: 5px;
   display: flex;
   justify-content: center;
+}
+
+
+@media screen and (max-width: 1050px) {
+  .slider {
+    position: relative;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    margin-top: 56vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    background-color: rgba(135, 206, 235, 0.6);
+  }
+
+}
+@media screen and (max-width: 577px) {
+  .slider {
+    position: relative;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sliderImg {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  footer {
+    margin-top: 20vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    background-color: rgba(135, 206, 235, 0.6);
+  }
 }
 .MySecondButton {
   background-color: #1A83FF;

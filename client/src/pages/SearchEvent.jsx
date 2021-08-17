@@ -127,7 +127,7 @@ const SearchMeetings = () => {
                         event it will held at {meeting.date}.
                       </Card.Text>
                       <Link to={`/meeting/${meeting._id}`}>
-                        <Button>Check it out here</Button>
+                        <button className="MySecondButton">Check it out here</button>
                       </Link>
                     </Card.Body>
                   </Card>
