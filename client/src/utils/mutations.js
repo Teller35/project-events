@@ -75,19 +75,7 @@ export const ADD_REACTION = gql`
   }
 `;
 
-export const ADD_FRIEND = gql`
-  mutation ADD_FRIEND($friendId: ID!) {
-    addFriend(friendId: $friendId) {
-      _id
-      username
-      friendsCount
-      friends {
-        _id
-        username
-      }
-    }
-  }
-`;
+
 
 export const LOGIN = gql`
   mutation LOGIN($email: String!, $password: String!) {

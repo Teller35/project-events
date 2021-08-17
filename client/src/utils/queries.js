@@ -178,3 +178,17 @@ export const SEARCH_CATEGORY = gql`
     }
   }
 `;
+
+export const ADD_FRIEND = gql`
+  mutation ADD_FRIEND($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friendsCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
