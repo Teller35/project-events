@@ -62,13 +62,14 @@ const AddReaction = ({ meetingId }) => {
             />
           </Form.Group>
           <Modal.Footer>
-            <Button
+            <button
+            className="MySecondButton"
               disabled={!reactionBody}
               type="submit"
               onClick={handleModalClose}
             >
               Comment
-            </Button>
+            </button>
           </Modal.Footer>
         </Form>
       </>

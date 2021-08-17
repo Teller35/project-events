@@ -4,10 +4,11 @@
 
 ## Description:
 
-#### _Need to get the word out about your event look no further. You can post events and let people know about it. Link up with your friends to plan and so much more. Sign-up and check it out yourself._
+#### _Need to get the word out about your event look no further. You can post events and let people know about it. Link up with your friends to plan and so much more. Sign-up and check it out yourself. This project was built using several technologies first and for most MongooseExpressReactNode SinglePageApplication or better known as MERN SPA, along with CSS, JsonWebToken, Bootstrap, Emailjs-com, and bcrypt_
 
 - _[View Project on GitHub](https://github.com/teller35/project-events)_
 - _[Visit Live Site](https://e-v-e-n-t-s.herokuapp.com/)_
+- _[Presentation](https://docs.google.com/presentation/d/1dLo5CP-Z91Y-qnYMoQDcR5tztTPJFEvc2M-lkU6BLPk/edit?usp=sharing)_
 
 ## Table of Contents:
 
@@ -48,7 +49,7 @@
 
 ## Questions
 
-- #### _If you have any questions please feel free to reach out to any team member at: <a href='mailto:tellerwetzel@yahoo.com'></i>Teller Wetzel Email</a>, <a href='mailto:david.mcdougal00@gmail.com;'></i>David McDougal Email</a>, <a href='mailto: apratt7891@gmail.com;'></i>Amber Pratt Email</a>, <a href='mailto:'></i>Brady Taylor Email</a>_
+- #### _If you have any questions please feel free to reach out to any team member at: <a href='mailto:tellerwetzel@yahoo.com'></i>Teller Wetzel Email</a>, <a href='mailto:david.mcdougal00@gmail.com;'></i>David McDougal Email</a>, <a href='mailto: apratt7891@gmail.com;'></i>Amber Pratt Email</a>, <a href='mailto:baetay03@gmail.com'></i>Brady Taylor Email</a>_
 - #### _You can also find more of our work at our GitHub pages: [Teller Wetzel GitHub](https://github.com/teller35), [Amber Pratt GitHub](https://github.com/apratt7891), [David McDougal GitHub](https://github.com/davsav16), [Brady Taylor GitHub](https://github.com/OSSATMTeamjc18)_
 - #### _Built with ❤️ by Amber Prat, Teller Wetzel, Brady Taylor, David McDougal_
 

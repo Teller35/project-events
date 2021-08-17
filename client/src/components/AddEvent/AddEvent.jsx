@@ -6,6 +6,9 @@ import DateTimePicker from "react-datetime-picker";
 // import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 
 const AddEventForm = ({ handleModalClose }) => {
+  
+  let [date, setDate] = useState(new Date());
+  
   const [formState, setFormState] = useState({
     meetingType: "",
     place: "",
@@ -17,7 +20,6 @@ const AddEventForm = ({ handleModalClose }) => {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addMeeting] = useMutation(ADD_MEETING);
-  const [date, onChange] = useState(new Date());
 
   // useEffect(() => {
   //   return () => saveMeeting(savedMeeting);
@@ -30,10 +32,11 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleFormSubmit = async (event) => {
     // event.preventDefault();
-    console.log(formState, date)
+    const formData = { ...formState, date: date.toLocaleString() };
+    // console.log(formData);
     try {
       await addMeeting({
-        variables: { ...formState, date },
+        variables: formData,
       });
     } catch (error) {
       console.log(error);
@@ -116,10 +119,14 @@ const AddEventForm = ({ handleModalClose }) => {
         </Form.Group>
         <Form.Label htmlFor="place">Date/Time:</Form.Label>
         <Form.Group>
-          <DateTimePicker onChange={onChange} value={date} />
+          <DateTimePicker onChange={(e) => {
+            console.log(e);
+            setDate(e);
+            }} value={date} />
         </Form.Group>
         <Modal.Footer>
-          <Button
+          <button
+          className="MySecondButton"
             disabled={
               !(
                 formState.meetingType &&
@@ -134,7 +141,7 @@ const AddEventForm = ({ handleModalClose }) => {
             onClick={handleModalClose}
           >
             Schedule
-          </Button>
+          </button>
         </Modal.Footer>
       </Form>
     </>
