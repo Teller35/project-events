@@ -3,7 +3,8 @@ import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useMutation } from "@apollo/react-hooks";
 import { UPDATE_USER } from "../../utils/mutations";
 
-const UpdateUserInfo = ({ handleModalClose }) => {
+
+const UpdateUserInfo = ({ handleModalClose, user }) => {
   const [formState, setFormState] = useState({
     username: "",
     firstName: "",
@@ -12,6 +13,9 @@ const UpdateUserInfo = ({ handleModalClose }) => {
     password: "",
     age: "",
   });
+  const [show, setShow] = useState(false);
+
+
   const [updateUser, { error }] = useMutation(UPDATE_USER);
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -35,58 +39,65 @@ const UpdateUserInfo = ({ handleModalClose }) => {
 
   return (
     <>
+    
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert}>
           Something went wrong!
         </Alert>
 
         <Form.Group>
-          <Form.Label html="userName"> Username: </Form.Label>
+          <Form.Label html="m-2 border border-5 rounded"> Username: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Update Username"
+            placeholder={user.username}
             name="userName"
             onChange={handleInputChange}
+            value={formState.username}
           />
         </Form.Group>
         <Form.Group>
           <Form.Label html="firstName"> First Name: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Update User First Name"
+            placeholder={user.firstName}
             name="firstName"
             onChange={handleInputChange}
+            value={formState.firstName}
           />
         </Form.Group>
         <Form.Group>
           <Form.Label html="lastName"> Last Name: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Update User Last Name"
+            placeholder={user.lastName}
             name="lastName"
             onChange={handleInputChange}
+            value={formState.lastName}
           />
         </Form.Group>
         <Form.Group>
           <Form.Label html="updateAge"> Age: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Update Age"
+            placeholder={user.age}
             name="updateAge"
             onChange={handleInputChange}
+            value={formState.age}
           />
         </Form.Group>
         <Form.Group>
           <Form.Label html="updateEmail"> Email Address: </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Update Email"
+            placeholder={user.email}
             name="updateEmail"
             onChange={handleInputChange}
+            value={formState.email}
           />
         </Form.Group>
         <Modal.Footer>
-          <Button type="submit" onClick={handleModalClose}></Button>
+          <button type="submit" className="MySecondButton" onClick={handleModalClose}>Update</button>
+          
         </Modal.Footer>
       </Form>
     </>

@@ -299,4 +299,11 @@ footer h4 {
   display: flex;
   justify-content: center;
 }
-
+.MySecondButton {
+  background-color: #1A83FF;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  border-radius: 3vw;
+  padding: 7px;
+}
