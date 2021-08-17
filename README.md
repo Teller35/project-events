@@ -50,7 +50,7 @@
 ## Questions
 
 - #### _If you have any questions please feel free to reach out to any team member at: <a href='mailto:tellerwetzel@yahoo.com'></i>Teller Wetzel Email</a>, <a href='mailto:david.mcdougal00@gmail.com;'></i>David McDougal Email</a>, <a href='mailto: apratt7891@gmail.com;'></i>Amber Pratt Email</a>, <a href='mailto:baetay03@gmail.com'></i>Brady Taylor Email</a>_
-- #### _You can also find more of our work at our GitHub pages: [Teller Wetzel GitHub](https://github.com/teller35){:target="_blank rel="noopener}, [Amber Pratt GitHub](https://github.com/apratt7891), [David McDougal GitHub](https://github.com/davsav16), [Brady Taylor GitHub](https://github.com/OSSATMTeamjc18)_
+- #### _You can also find more of our work at our GitHub pages: [Teller Wetzel GitHub](https://github.com/teller35){:target="_blank" rel="noopener"}, [Amber Pratt GitHub](https://github.com/apratt7891), [David McDougal GitHub](https://github.com/davsav16), [Brady Taylor GitHub](https://github.com/OSSATMTeamjc18)_
 - #### _Built with ❤️ by Amber Prat, Teller Wetzel, Brady Taylor, David McDougal_
 
 ## Screenshots
