@@ -6,7 +6,10 @@ import DateTimePicker from "react-datetime-picker";
 // import { saveMeeting, getSavedMeeting } from "../../utils/localStorage";
 
 const AddEventForm = ({ handleModalClose }) => {
-  let [date, setDate] = useState(new Date());
+  let newDate = new Date();
+  console.log({newDate})
+  let [date, setDate] = useState(newDate);
+  console.log(date);
   const [formState, setFormState] = useState({
     meetingType: "",
     place: "",
@@ -26,7 +29,7 @@ const AddEventForm = ({ handleModalClose }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setDate(date)
+    // setDate(date)
     setFormState({ ...formState, [name]: value });
   };
 
@@ -118,7 +121,10 @@ const AddEventForm = ({ handleModalClose }) => {
         </Form.Group>
         <Form.Label htmlFor="place">Date/Time:</Form.Label>
         <Form.Group>
-          <DateTimePicker onChange={setDate} value={date} />
+          <DateTimePicker onChange={(e) => {
+            console.log(e);
+            setDate(e);
+            }} value={date} />
         </Form.Group>
         <Modal.Footer>
           <button
