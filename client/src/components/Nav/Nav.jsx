@@ -23,7 +23,7 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSideBar} />
           </Link>
         </div>
-        <h1 className="text-center">E-V-E-N-T-S</h1>
+        <h1 className="text-center">E.V.E.N.T.S</h1>
         <Modal
           show={show}
           onHide={() => setShow(false)}
