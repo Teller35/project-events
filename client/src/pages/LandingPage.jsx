@@ -10,6 +10,22 @@ const LandingPage = () => {
 
   return (
     <div className="landingPage">
+      <div className="loginArea">
+        <button
+          id="loginBtn"
+          className="MyButton"
+          onClick={() => setShowLogin(true)}
+        >
+          Login
+        </button>
+        <button
+          id="SignUpButton"
+          className="MyButton"
+          onClick={() => setShowSignUp(true)}
+        >
+          SignUp
+        </button>
+      </div>
       <div className="landingPageInfo">
         <h1>What will be your next ADVENTURE?</h1>
         <p>
@@ -20,14 +36,6 @@ const LandingPage = () => {
           next adventure if you feel extra adventurous! 😉
         </p>
         <ImageSlider />
-        <div className="loginArea">
-          <button id="loginBtn" onClick={() => setShowLogin(true)}>
-            Login
-          </button>
-          <button id="SignUpButton" onClick={() => setShowSignUp(true)}>
-            SignUp
-          </button>
-        </div>
       </div>
 
       <div>

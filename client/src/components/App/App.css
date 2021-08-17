@@ -147,25 +147,24 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 4vw;
-  width: 50%;
+  padding: 1vw;
 }
 
-.loginArea button {
-  background-color: blue;
+.MyButton {
+  background-color: #1a83ff;
   color: white;
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-weight: bold;
-  border-radius: 1vw;
+  border-radius: 3vw;
   padding: 7px;
 }
 
 /* Footer Styling */
 footer {
-  margin-top: 23vh;
+  margin-bottom: 0vh;
   padding-left: 3vw;
   padding-right: 3vw;
-  background-color: cornsilk;
+  background-color: rgba(135, 206, 235, 0.6);
 }
 
 footer h4 {
@@ -302,6 +301,7 @@ footer h4 {
   justify-content: center;
 }
 
+
 @media screen and (max-width: 1050px) {
   .slider {
     position: relative;
@@ -309,6 +309,13 @@ footer h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  footer {
+    margin-top: 56vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    background-color: rgba(135, 206, 235, 0.6);
   }
 
 }
@@ -325,5 +332,12 @@ footer h4 {
     width: 300px;
     height: 200px;
     border-radius: 10px;
+  }
+
+  footer {
+    margin-top: 20vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    background-color: rgba(135, 206, 235, 0.6);
   }
 }
