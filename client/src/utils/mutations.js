@@ -93,22 +93,17 @@ export const LOGIN = gql`
 export const UPDATE_USER = gql`
   mutation UPDATE_USER(
     $username: String
-    $email: String
-    $password: String
     $firstName: String
     $lastName: String
-    $age: Int
+    $age: String
   ) {
     updateUser(
       username: $username
-      email: $email
-      password: $password
       firstName: $firstName
       lastName: $lastName
       age: $age
     ) {
       username
-      email
       firstName
       lastName
       age

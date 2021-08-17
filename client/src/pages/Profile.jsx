@@ -54,45 +54,49 @@ const Profile = (props) => {
       <div>
         <div>
           {!userParam && (
-            <div className="updateUserInfo">
-              <button className="MySecondButton" onClick={() => setShow(true)}>
-                Update Information
-              </button>
-              <Modal
-                show={show}
-                onHide={() => setShow(false)}
-                backdrop="static"
-                keyboard={false}
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>Update User Info</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <UpdateUserInfo
-                    handleModalClose={() => setShow(false)}
-                    user={user}
-                  />
-                </Modal.Body>
-              </Modal>
-            </div>
+            <>
+              <div className="updateUserInfo">
+                <button
+                  className="MySecondButton"
+                  onClick={() => setShow(true)}
+                >
+                  Update Information
+                </button>
+                <Modal
+                  show={show}
+                  onHide={() => setShow(false)}
+                  backdrop="static"
+                  keyboard={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>Update User Info</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <UpdateUserInfo
+                      handleModalClose={() => setShow(false)}
+                      user={user}
+                    />
+                  </Modal.Body>
+                </Modal>
+              </div>
+              <div className="col-12 col-lg-3 mb-3">
+                <FriendList
+                  username={user.username}
+                  friendCount={user.friendCount}
+                  friends={user.friends}
+                />
+              </div>
+            </>
           )}
+          {userParam && (
+            <button className="MySecondButton" onClick={handleInputChange}>
+              Add Friend
+            </button>
+          )}
+          <div className="userevents">
+            <MyEvents user={user} myMeetings={user.meetings} />
+          </div>
         </div>
-        {userParam && (
-          <button className="MySecondButton" onClick={handleInputChange}>
-            Add Friend
-          </button>
-        )}
-      </div>
-
-      <div className="col-12 col-lg-3 mb-3">
-        <FriendList
-          username={user.username}
-          friendCount={user.friendCount}
-          friends={user.friends}
-        />
-      </div>
-      <div className="userevents">
-        {userParam && <MyEvents user={user} myMeetings={user.meetings} />}{" "}
       </div>
     </div>
   );
