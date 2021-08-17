@@ -36,7 +36,7 @@ const AddEventForm = ({ handleModalClose }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState, date)
-    const formData = { ...formState, date };
+    const formData = { ...formState, date: date.toLocaleString() };
     console.log(formData);
     try {
       await addMeeting({
@@ -125,7 +125,7 @@ const AddEventForm = ({ handleModalClose }) => {
         <Form.Group>
           <DateTimePicker onChange={(e) => {
             console.log(e);
-            setDate(e.toLocaleString());
+            setDate(e);
             }} value={date} />
         </Form.Group>
         <Modal.Footer>
