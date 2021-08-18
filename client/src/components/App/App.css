@@ -335,6 +335,23 @@ footer h4 {
   }
 
 }
+
+@media screen and (max-width: 950px) {
+  .slider {
+    position: relative;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sliderImg {
+    width: 750px;
+    height: 400px;
+    border-radius: 10px;
+  }
+}
+
 @media screen and (max-width: 577px) {
   .slider {
     position: relative;
