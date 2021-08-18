@@ -16,7 +16,7 @@ function SignUp(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -38,8 +38,7 @@ function SignUp(props) {
 
   return (
     <div>
-      <h2>SignUp</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="logSign">
         <div>
           <label htmlFor="username">Username: </label>
           <input

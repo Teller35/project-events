@@ -55,35 +55,36 @@
 
 ## Screenshots
 
-### _Landing Page_
+## _Landing Page_
+![image](https://user-images.githubusercontent.com/79383305/129789362-4ffb8ea1-8d72-4d58-b022-9c37d2fa5b36.png)
+![image](https://user-images.githubusercontent.com/79383305/129789373-00686292-20cd-4e4e-8af0-30d3b2e94aa4.png)
 
-![image](https://user-images.githubusercontent.com/79383305/129616877-5f18e878-66de-4cc9-82ee-801dc29df110.png)
-![image](https://user-images.githubusercontent.com/79383305/129616904-0145a6c5-cd62-4b07-9509-3cb5cc9677da.png)
+## _Donate Page_
+![image](https://user-images.githubusercontent.com/79383305/129789431-dde8b3c5-1863-4982-a405-35946bb00dfb.png)
 
-### _Donate Page_
+## _Support_
+![image](https://user-images.githubusercontent.com/79383305/129789283-22b211ae-9e83-4fb7-b8d6-b324200e7c9a.png)
 
-![image](https://user-images.githubusercontent.com/79383305/129617651-c4a18201-5920-4a12-8fa5-1d30ae11a271.png)
+## _Home Page_
+![image](https://user-images.githubusercontent.com/79383305/129789608-b1cc89f7-e965-4cdb-bcd9-2dca99304281.png)
 
-### _Support_
+## _Single Event Page_
+![image](https://user-images.githubusercontent.com/79383305/129789652-536ac9de-f504-4901-9fa2-7b60a501a8ea.png)
 
-### _Home Page_
+## _Add Comment Modal_
+![image](https://user-images.githubusercontent.com/79383305/129789675-1c2606c8-55d4-4a29-aec7-7794c45e6953.png)
 
-![image](https://user-images.githubusercontent.com/79383305/129617821-6982e243-3b37-41d0-8803-4fd5d5937c92.png)
+## _Add Event Modal_
+![image](https://user-images.githubusercontent.com/79383305/129789721-0f5699fe-ef4c-46b0-8425-6ef0e7e85e58.png)
 
-### _Single Event Page_
+## _Search Events Modal_
+![image](https://user-images.githubusercontent.com/79383305/129789801-bf125e08-416f-46c9-a5bf-9350e27618e9.png)
 
-![image](https://user-images.githubusercontent.com/79383305/129617897-5858ba74-fe97-4de0-9ef5-c3f44aadfbff.png)
+## _Search Events Page_
+![image](https://user-images.githubusercontent.com/79383305/129789840-d62f4619-dc2f-4c2d-ba43-f56cfaa6e50a.png)
 
-### _Add Comment Modal_
+## _Profile_
+![image](https://user-images.githubusercontent.com/79383305/129789875-8a94139e-0124-4d7c-bade-db645791fe6d.png)
 
-![image](https://user-images.githubusercontent.com/79383305/129617970-ad06f8b4-ea25-4b1a-bc94-881d6db303b2.png)
-
-### _Add Event Modal_
-
-![image](https://user-images.githubusercontent.com/79383305/129618064-683de34e-8e73-4d30-a7cf-66d4be7194a8.png)
-
-### _Search Events Page_
-
-![image](https://user-images.githubusercontent.com/79383305/129618157-8fc2630d-4c05-4efc-a5f7-698ae8f8d550.png)
-
-### _Profile_
+## _Update Profile Modal_
+![image](https://user-images.githubusercontent.com/79383305/129789918-78a81c68-7c59-4a39-b257-4c87fc1fcdfa.png)

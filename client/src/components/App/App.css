@@ -14,6 +14,9 @@ header {
 }
 
 /* Nav CSS */
+.text-center {
+  margin: 5vw;
+}
 .navBar {
   background-color: #060b26;
   height: 80px;
@@ -126,6 +129,28 @@ span {
 }
 
 /* login/signup form Styling */
+.logSign label {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logSign input {
+  border: rgb(27, 27, 182);
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 7px;
+}
+
+.logSign button {
+  background-color: #1a83ff;
+  width: 10vw;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  border-radius: 3vw;
+  padding: 7px;font-weight: bold;
+}
+
 .landingPage {
   margin: 4vw;
 }
@@ -171,13 +196,9 @@ span {
 
 /* Footer Styling */
 footer {
-  margin-bottom: 0vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
-background-color: rgba(135, 206, 235, 0.6);
-  position: -webkit-sticky;
-  left: 0;
-  bottom: 0;
+  margin-top: 25vh;
+  background-color: rgba(135, 206, 235, 0.6);
+  height: 24vh;
   width: 100%;
   overflow: hidden;
 }
@@ -189,17 +210,26 @@ footer h4 {
 }
 
 .footerArea {
-  display: flex;  
+  display: flex;
   justify-content: center;
-  padding-top: 2vw;
-  padding-bottom: 2vw;
+  padding-top: 1vw;
 }
 
 .developerStyle {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 70%;
+  width: 60%;
+}
+
+.Font {
+  font-size: xx-small;
+}
+
+.Spacing {
+  display: flex;
+  justify-content: center;
+  font-size: medium;
 }
 
 @keyframes App-logo-spin {
@@ -317,8 +347,23 @@ footer h4 {
   justify-content: center;
 }
 
+.contactDiv label {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.contactDiv input, textarea {
+  border: rgb(27, 27, 182);
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 7px;
+}
 
 @media screen and (max-width: 1050px) {
+  .nav-text a {
+    font-size: 4vw;
+  }
+
   .slider {
     position: relative;
     height: 35vh;
@@ -327,15 +372,74 @@ footer h4 {
     align-items: center;
   }
 
-  footer {
-    margin-top: 56vh;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    background-color: rgba(135, 206, 235, 0.6);
+  .logSign button {
+    width: 13vw;
+    font-size: 1.5vw;
   }
 
+  /* Donate Style */
+  .donateText h1, p {
+    padding: 3vw;
+  }
+
+  .donateSection {
+    flex-direction: column;
+  }
+
+  .donateContainer {
+    max-width: 100%;
+  }
+
+  .donateForm {
+    margin-left: 13vh;
+    margin-right: 1vw;
+  }
+  .donateContainer {
+    width: 100%;
+  }
+
+  .donorWallContainer {
+    margin: 23px;
+    display: flex;
+    justify-content: center;
 }
+
+  footer {
+    margin-top: 16vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    height: 14vh;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .slider {
+    position: relative;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sliderImg {
+    width: 750px;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  footer {
+    margin-top: 27vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    height: 14vh;
+  }
+}
+
 @media screen and (max-width: 577px) {
+  .nav-text a {
+    font-size: 6vw;
+  }
+/* Login styles */
   .slider {
     position: relative;
     height: 35vh;
@@ -350,10 +454,59 @@ footer h4 {
     border-radius: 10px;
   }
 
+  .logSign button {
+    width: 17vw;
+    font-size: 3vw;
+  }
+
+  .MyButton {
+    font-size: 5vw;
+  }
+
+  .landingPageInfo h1 {
+    font-size: 11vw;
+    text-align: center;
+  }
+
+  .landingPageInfo p {
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  /* Support Page style */
+    .contSection {
+      width: 85%;
+    }
+
+    .MySecondButton {
+      font-size: 4vw;
+    }
+
+    textarea {
+      width: 100%;
+    }
+  /* Donate Page style */
+  .donateForm {
+    margin-left: 1vh;
+    margin-right: 1vw;
+  }
+
+  .donorWallContainer {
+   padding-left: 0px; 
+   margin-top: 50px;
+  } 
+
   footer {
-    margin-top: 20vh;
+    margin-top: 30vh;
     padding-left: 3vw;
     padding-right: 3vw;
-    background-color: rgba(135, 206, 235, 0.6);
+    height: 18vh;
   }
 }
+/* Profile Page */
+.welcome {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+}
+

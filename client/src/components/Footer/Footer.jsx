@@ -7,7 +7,7 @@ import Brady from "../../assets/small/brady.png";
 const Footer = () => {
   return (
     <footer>
-      <h4>What to get to know the developers? Reach out on LinkedIn!</h4>
+      <h4>Want to get to know the developers? Reach out on LinkedIn!</h4>
       <div className="footerArea">
         <div className="developerStyle">
           <div className="appSpin">
@@ -53,8 +53,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div>
-        <div>
+      <div className="Spacing">&copy;2021 by Teller Wetzel, Amber Pratt, David McDougal, and Brady Taylor</div>
+      <div className="Font">
           Icons made by{" "}
           <a href="https://www.freepik.com" title="Freepik">
             Freepik
@@ -63,9 +63,7 @@ const Footer = () => {
           <a href="https://www.flaticon.com/" title="Flaticon">
             www.flaticon.com
           </a>
-        </div>
       </div>
-      <div>&copy;2021 by Teller, Amber, David, and Brady</div>
     </footer>
   );
 };
