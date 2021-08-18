@@ -13,7 +13,7 @@ const Donate = () => {
               is offered by our users! Your donation will allow us to make new
               opportunities for others!
             </p>
-            <p>In addition a portion of your donation will also be donated </p>
+            <p>In addition a portion of your donation will also be donated to combat climate change. </p>
           </div>
           <div className="donateForm">
             <script
@@ -33,6 +33,7 @@ const Donate = () => {
           </div>
         </div>
         <div className="donorWallContainer">
+        <div className="donorDisplay">
           <script
             src="https://donorbox.org/widget.js"
             paypalExpress="false"
@@ -46,6 +47,7 @@ const Donate = () => {
             src="https://donorbox.org/embed/e-v-e-n-t-s?only_donor_wall=true"
             id="donarWall"
           ></iframe>
+        </div>
         </div>
       </section>
     </div>
