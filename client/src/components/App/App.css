@@ -14,6 +14,9 @@ header {
 }
 
 /* Nav CSS */
+.text-center {
+  margin: 5vw;
+}
 .navBar {
   background-color: #060b26;
   height: 80px;
@@ -126,6 +129,28 @@ span {
 }
 
 /* login/signup form Styling */
+.logSign label {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.logSign input {
+  border: rgb(27, 27, 182);
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 7px;
+}
+
+.logSign button {
+  background-color: #1a83ff;
+  width: 10vw;
+  color: white;
+  font-size: 1vw;
+  font-weight: bold;
+  border-radius: 3vw;
+  padding: 7px;font-weight: bold;
+}
+
 .landingPage {
   margin: 4vw;
 }
@@ -322,7 +347,23 @@ footer h4 {
   justify-content: center;
 }
 
+.contactDiv label {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.contactDiv input, textarea {
+  border: rgb(27, 27, 182);
+  border-style: groove;
+  border-width: 2px;
+  border-radius: 7px;
+}
+
 @media screen and (max-width: 1050px) {
+  .nav-text a {
+    font-size: 4vw;
+  }
+
   .slider {
     position: relative;
     height: 35vh;
@@ -330,6 +371,38 @@ footer h4 {
     justify-content: center;
     align-items: center;
   }
+
+  .logSign button {
+    width: 13vw;
+    font-size: 1.5vw;
+  }
+
+  /* Donate Style */
+  .donateText h1, p {
+    padding: 3vw;
+  }
+
+  .donateSection {
+    flex-direction: column;
+  }
+
+  .donateContainer {
+    max-width: 100%;
+  }
+
+  .donateForm {
+    margin-left: 13vh;
+    margin-right: 1vw;
+  }
+  .donateContainer {
+    width: 100%;
+  }
+
+  .donorWallContainer {
+    margin: 23px;
+    display: flex;
+    justify-content: center;
+}
 
   footer {
     margin-top: 16vh;
@@ -363,6 +436,10 @@ footer h4 {
 }
 
 @media screen and (max-width: 577px) {
+  .nav-text a {
+    font-size: 6vw;
+  }
+/* Login styles */
   .slider {
     position: relative;
     height: 35vh;
@@ -377,6 +454,48 @@ footer h4 {
     border-radius: 10px;
   }
 
+  .logSign button {
+    width: 17vw;
+    font-size: 3vw;
+  }
+
+  .MyButton {
+    font-size: 5vw;
+  }
+
+  .landingPageInfo h1 {
+    font-size: 11vw;
+    text-align: center;
+  }
+
+  .landingPageInfo p {
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  /* Support Page style */
+    .contSection {
+      width: 85%;
+    }
+
+    .MySecondButton {
+      font-size: 4vw;
+    }
+
+    textarea {
+      width: 100%;
+    }
+  /* Donate Page style */
+  .donateForm {
+    margin-left: 1vh;
+    margin-right: 1vw;
+  }
+
+  .donorWallContainer {
+   padding-left: 0px; 
+   margin-top: 50px;
+  } 
+
   footer {
     margin-top: 30vh;
     padding-left: 3vw;
@@ -384,3 +503,10 @@ footer h4 {
     height: 18vh;
   }
 }
+/* Profile Page */
+.welcome {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
