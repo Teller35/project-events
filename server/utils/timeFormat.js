@@ -63,7 +63,7 @@ module.exports = (date, { monthLength = "short" } = {}) => {
   
     // variable to make the new timestamp and in the order that I selected
     const formattedDateStamp = `${hours}:${formMinute} ${portionOfDay} on ${formMonth}/${formDate}/${formYear}`;
-    console.log(formattedDateStamp);
+    
     //   returning the new timestamp
     return formattedDateStamp;
   };

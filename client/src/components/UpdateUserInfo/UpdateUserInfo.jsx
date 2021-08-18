@@ -5,12 +5,7 @@ import { UPDATE_USER } from "../../utils/mutations";
 
 
 const UpdateUserInfo = ({ handleModalClose, user }) => {
-  const [formState, setFormState] = useState({
-    username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    age: user.age,
-  });
+  const [formState, setFormState] = useState([]);
 
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -22,6 +17,8 @@ const UpdateUserInfo = ({ handleModalClose, user }) => {
   };
 
   const handleFormSubmit = async (event) => {
+    // event.preventDefault();
+    // console.log(formState)
     try {
        await updateUser({
         variables: { ...formState },
@@ -45,6 +42,7 @@ const UpdateUserInfo = ({ handleModalClose, user }) => {
           <Form.Control
             type="text"
             name="username"
+            placeholder={user.username}
             onChange={handleInputChange}
             value={formState.username}
           />
@@ -54,6 +52,7 @@ const UpdateUserInfo = ({ handleModalClose, user }) => {
           <Form.Control
             type="text"
             name="firstName"
+            placeholder={user.firstName}
             onChange={handleInputChange}
             value={formState.firstName}
           />
@@ -63,6 +62,7 @@ const UpdateUserInfo = ({ handleModalClose, user }) => {
           <Form.Control
             type="text"
             name="lastName"
+            placeholder={user.lastName}
             onChange={handleInputChange}
             value={formState.lastName}
           />
@@ -72,6 +72,7 @@ const UpdateUserInfo = ({ handleModalClose, user }) => {
           <Form.Control
             type="text"
             name="age"
+            placeholder={user.age}
             onChange={handleInputChange}
             value={formState.age}
           />
