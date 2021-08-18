@@ -357,3 +357,10 @@ footer h4 {
     background-color: rgba(135, 206, 235, 0.6);
   }
 }
+/* Profile Page */
+.welcome {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+}
+

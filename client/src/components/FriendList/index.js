@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const FriendList = ({ friendCount, username, friends }) => {
   if (!friends || !friends.length) {
     return (
-      <h5>{username}, you need to make some friends!</h5>
+      <h5>{username}, are you ready to make some friends?</h5>
     );
   }
 
