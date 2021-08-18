@@ -14,9 +14,6 @@ header {
 }
 
 /* Nav CSS */
-.text-center {
-  margin: 5vw;
-}
 .navBar {
   background-color: #060b26;
   height: 80px;
@@ -219,7 +216,7 @@ footer h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 60%;
+  width: 70%;
 }
 
 .Font {
