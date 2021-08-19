@@ -25,6 +25,7 @@ export class Support extends Component {
             "user_2ni6BnmJ5lWihDVy1RLLl"
         )
         .then()
+        .then(alert("Thank you for reaching out! We will contact you shortly! :)"))
         .catch();
         this.setState({
             name: "",
