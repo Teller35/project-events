@@ -322,6 +322,9 @@ footer h4 {
   justify-content: center;
   margin: 3vw;
 }
+textarea {
+  width: 80%;
+}
 
 .contSection {
   background: rgba(135, 206, 235, 0.6);
